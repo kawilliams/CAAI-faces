@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Bias Story</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style/faces-style.css">
+
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<!-- <script src="script/d3.v6.min.js"></script> -->
+<script src="script/upload-face.js"></script>
+<script src="script/compare-faces.js"></script>
+<script src="script/slider-faces.js"></script>
+<body>
+<div id="uploadFace" class="svg-container">
+	<p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<label for="myfile">Select an image (JPEG, PNG):</label>
+		<input type="file" id="myfile" name="fileToUpload">
+		<br/>
+		<br/>
+		<br/>
+
+		<input id="uploadImage" type="submit" name="submit" value="Upload Image">
+	</form>
+
+<!-- 	<svg id="uploadSVG"></svg> -->
+</div>
+
+<div id="compareFaces" class="svg-container">
+	<svg id="compareSVG">
+	</svg>
+</div>
+
+<div id="sliderFaces" class="svg-container">
+	<svg id="sliderSVG">
+	</svg>
+</div>
+
+
+
+</body>
+</html>

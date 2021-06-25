@@ -1,0 +1,24 @@
+/* 
+Colors
+CAII
+#48A9C5 light blue
+#1B365D dark blue
+*/
+
+p {
+	font-family: sans-serif;
+}
+
+label {
+	font-family: sans-serif;
+}
+
+#uploadImage {
+	background-color: #1B365D;
+	color:  white;
+	border:  none;
+	padding:  15px 32px;
+	text-align: center;
+	font-size:  16px;
+}
+
