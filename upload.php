@@ -1,5 +1,4 @@
 <?php
-echo "php page";
 $target_dir = "uploaded-faces";
 $target_file = $target_dir ."/". basename($_FILES["fileToUpload"]["name"]);
 
