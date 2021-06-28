@@ -21,7 +21,7 @@ var numberOfPairs = 1;
 var topTextWords = ['These two candidates ran for election. Click on who you think won the election.'];
 var bottomTextWords = ['Click above.'];
 var text = {fontsize: 28}
-var answerKey = ['L', 'R', 'L'];
+var answerKey = ['leftImage', 'leftImage', 'leftImage'];
 
 /* Useful function to split text for tspan. 
 Gives the effect of text wrapping. */
@@ -44,7 +44,7 @@ var svgBackground = svg.append('rect')
 	.attr('y', margin.top)
 	.attr('width', svgDimensions.width - 20)
 	.attr('height', svgDimensions.height - 20)
-	.attr('fill', 'pink');
+	.attr('fill', 'none');
 
 var topText = svg.append('text')
 	.attr('id', 'topText')
@@ -56,7 +56,6 @@ topText.selectAll('text.topTspan')
 	.append('tspan')
 	.attr('class', 'topTspan')
 	.text(d => {
-		console.log(d);
 		return d;
 	})
 	.attr('x', margin.left + padding)
@@ -74,27 +73,41 @@ var bottomText = svg.append('text')
 	.attr('id', 'bottomText')
 	.attr('x', margin.left + padding)
 	.attr('y', svgDimensions.height - 50)
-	.text(bottomTextWords[0]);
+	.text(bottomTextWords[0])
+	.attr('font-size', text.fontsize);
 
 function checkImage(event, i) {
 	
 	var imageClass = d3.select(this).attr('class');
-	var imageSide = imageClass.split(' ')[0].split('Image')[0];
+	var imageSide = imageClass.split(' ')[0];
+	
 	var pairNumber = +(imageClass.split(' ')[1].split('-')[0]);
-	imageSide = (imageSide == 'right') ? 'R' : 'L';
-
+	var otherImageSide = (imageSide == 'rightImage') ? 'leftImage' : 'rightImage';
+	
 	if (imageSide == answerKey[pairNumber]) {
 		d3.select('#bottomText').text('Correct!');
-		
+		d3.select('.imageRect.' + imageSide)
+			.style('stroke', 'green')
+			.style('stroke-width', '25px');
+		d3.select('.imageRect.' + otherImageSide)
+			.style('stroke', 'red')
+			.style('stroke-width', '25px');
+		//Add "Winner" text below winner
+		d3.select('text.'+ imageSide).attr('display', 'inline');
+		d3.select('text.'+ otherImageSide).attr('display', 'none');
 	}
 	else {
 		d3.select('#bottomText').text('Incorrect.');
-
+		d3.select('.imageRect.' + imageSide)
+			.style('stroke', 'red')
+			.style('stroke-width', '25px');
+		d3.select('.imageRect.' + otherImageSide)
+			.style('stroke', 'green')
+			.style('stroke-width', '25px');
+		//Add "Winner" text below winner
+		d3.select('text.'+ imageSide).attr('display', 'none');
+		d3.select('text.'+ otherImageSide).attr('display', 'inline');
 	}
-
-	//Change the border colors
-	d3.selectAll('.imageRect').style('stroke', 'green')
-	.style('stroke-width', '25px');
 }
 
 // for (var i=0; i<numberOfPairs; i++) {
@@ -111,6 +124,14 @@ function checkImage(event, i) {
 		.attr('class', 'imageRect leftImage ' + i + "-pair")
 		.style('stroke-width', '0px')
 		.style('fill', 'none');
+	imagesG.append('text')
+		.attr('class', 'leftImage')
+		.attr('x', 0.5 * imageDimensions.width - 2)
+		.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
+		.text('Winner')
+		.attr('display', 'none')
+		.attr('font-size', text.fontsize);
+
 
 	var leftImage = imagesG.append('svg:image')
 		.attr('x', imageDimensions.xleft)
@@ -131,6 +152,13 @@ function checkImage(event, i) {
 		.attr('class', 'imageRect rightImage ' + i + "-pair")
 		.style('stroke-width', '0px')
 		.style('fill', 'none');
+	imagesG.append('text')
+		.attr('class', 'rightImage')
+		.attr('x', imageDimensions.xright + 60)
+		.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
+		.text('Winner')
+		.attr('display', 'none')
+		.attr('font-size', text.fontsize);
 	var rightImage = imagesG.append('svg:image')
 		.attr('x', imageDimensions.xright)
 		.attr('y', imageDimensions.yright)
