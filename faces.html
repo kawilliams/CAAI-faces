@@ -2,15 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
-<title>Bias Story</title>
+<title>Faces</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="style/faces-style.css">
 
 <script src="https://d3js.org/d3.v6.min.js"></script>
 <!-- <script src="script/d3.v6.min.js"></script> -->
-<script src="script/upload-face.js"></script>
-<script src="script/compare-faces.js"></script>
-<script src="script/slider-faces.js"></script>
+
 <body>
 <div id="uploadFace" class="svg-container">
 	<p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
@@ -24,7 +22,6 @@
 		<input id="uploadImage" type="submit" name="submit" value="Upload Image">
 	</form>
 
-<!-- 	<svg id="uploadSVG"></svg> -->
 </div>
 
 <div id="compareFaces" class="svg-container">
@@ -37,6 +34,9 @@
 	</svg>
 </div>
 
+<script src="script/upload-face.js"></script>
+<script src="script/compare-faces.js"></script>
+<script src="script/slider-faces.js"></script>
 
 
 </body>
