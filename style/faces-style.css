@@ -22,3 +22,7 @@ label {
 	font-size:  16px;
 }
 
+#compareFaces {
+	max-width: 300px;
+	font-family: sans-serif;
+}

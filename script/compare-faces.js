@@ -1,5 +1,5 @@
 console.log("compare-faces.js");
-var svgDimensions = { width: 350, height: 450};
+var svgDimensions = { width: 550, height: 550};
 var margin = {
 	right: 10,
 	left: 10,
@@ -8,24 +8,36 @@ var margin = {
 };
 
 var imageDimensions = {
-	xleft: 20,
-	xright: 130,
-	yleft: 10,
-	yright: 10,
-	height: 200,
-	width: 100
+	height: 266,
+	width: 200,
+	xleft: 40,
+	xright: 310,
+	yleft: 100,
+	yright: 100
 }
 var padding = 10;
 var numberOfPairs = 1;
 
 var topTextWords = ['These two candidates ran for election. Click on who you think won the election.'];
 var bottomTextWords = ['Click above.'];
+var text = {fontsize: 28}
 var answerKey = ['L', 'R', 'L'];
+
+/* Useful function to split text for tspan. 
+Gives the effect of text wrapping. */
+function wrapText(rectText, w) {
+	var wrap = rectText.replace(
+		new RegExp(`(?![^\\n]{1,${w}}$)([^\\n]{1,${w}})\\s`, 'g'), '$1\n'
+	);
+	var wrapList = wrap.split('\n');
+	return wrapList;
+}
 
 ////////// Visualization ////////
 var svg = d3.select('#compareSVG')
-	.attr('width', svgDimensions.width)
-	.attr('height', svgDimensions.height);
+	.attr('preserveAspectRatio', 'xMidYMid meet')
+	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
+	.attr('style', 'outline: thin solid red;');
 
 var svgBackground = svg.append('rect')
 	.attr('x', margin.left)
@@ -38,18 +50,20 @@ var topText = svg.append('text')
 	.attr('id', 'topText')
 	.attr('x', margin.left + padding)
 	.attr('y', margin.top + padding)
-	.text(topTextWords[0]);
-// svg.selectAll('text.topTspan')
-// 	.data(topTextWords[0])
-// 	.enter()
-// 	.append('tspan')
-// 	.attr('class', 'topTspan')
-// 	.attr('x', margin.left + padding)
-// 	.attr('y', margin.top + padding)
-// 	.text(d => {
-// 		console.log(d);
-// 		return d;
-// 	});
+topText.selectAll('text.topTspan')
+	.data(wrapText(topTextWords[0], 40))
+	.enter()
+	.append('tspan')
+	.attr('class', 'topTspan')
+	.text(d => {
+		console.log(d);
+		return d;
+	})
+	.attr('x', margin.left + padding)
+	// .attr('y', margin.top + padding)
+	.attr('dy', text.fontsize)
+	.attr('font-size', text.fontsize);
+
 
 var imagesG = svg.append('g')
 	.attr('id', 'imagesG')
@@ -70,12 +84,17 @@ function checkImage(event, i) {
 	imageSide = (imageSide == 'right') ? 'R' : 'L';
 
 	if (imageSide == answerKey[pairNumber]) {
-		console.log("CORRECT");
+		d3.select('#bottomText').text('Correct!');
+		
 	}
 	else {
-		console.log("--Incorect");
+		d3.select('#bottomText').text('Incorrect.');
+
 	}
-	
+
+	//Change the border colors
+	d3.selectAll('.imageRect').style('stroke', 'green')
+	.style('stroke-width', '25px');
 }
 
 // for (var i=0; i<numberOfPairs; i++) {
@@ -83,7 +102,17 @@ function checkImage(event, i) {
 	var filenameLeft = "./compare-faces/pair" + i + "-L.jpg";
 	var filenameRight = "./compare-faces/pair" + i + "-R.jpg";
 	
-	imagesG.append('svg:image')
+
+	var leftRect = imagesG.append('rect')
+		.attr('x', imageDimensions.xleft)
+		.attr('y', imageDimensions.yleft)
+		.attr('width', imageDimensions.width)
+		.attr('height', imageDimensions.height)
+		.attr('class', 'imageRect leftImage ' + i + "-pair")
+		.style('stroke-width', '0px')
+		.style('fill', 'none');
+
+	var leftImage = imagesG.append('svg:image')
 		.attr('x', imageDimensions.xleft)
 		.attr('y', imageDimensions.yleft)
 		.attr('width', imageDimensions.width)
@@ -93,7 +122,16 @@ function checkImage(event, i) {
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
 
-	imagesG.append('svg:image')
+
+	var rightRect = imagesG.append('rect')
+		.attr('x', imageDimensions.xright)
+		.attr('y', imageDimensions.yright)
+		.attr('width', imageDimensions.width)
+		.attr('height', imageDimensions.height)
+		.attr('class', 'imageRect rightImage ' + i + "-pair")
+		.style('stroke-width', '0px')
+		.style('fill', 'none');
+	var rightImage = imagesG.append('svg:image')
 		.attr('x', imageDimensions.xright)
 		.attr('y', imageDimensions.yright)
 		.attr('width', imageDimensions.width)
