@@ -48,6 +48,7 @@ if ($uploadOk == 0) {
   }
 }
 
-
+//readfile('faces.html');
+header('Location: ./faces.html');
 
 ?>
