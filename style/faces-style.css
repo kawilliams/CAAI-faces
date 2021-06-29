@@ -31,6 +31,11 @@ div {
 	font-family: sans-serif;
 }
 
+#sliderFaces {
+	max-width: 500px;
+	font-family: sans-serif;
+}
+
 img.obj {
 	max-width: 300px;
 }
