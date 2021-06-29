@@ -1,5 +1,5 @@
 console.log("slider-faces.js");
-var svgDimensions = { width: 400, height: 400};
+var svgDimensions = { width: 230, height: 210};
 var margin = {
 	right: 10,
 	left: 10,
@@ -8,13 +8,13 @@ var margin = {
 };
 
 var imageDimensions = {
-	height: 300,
-	width: 300,
-	x: 0,
-	y: 0
+	width: 150,
+	height: 200,
+	x: 5,
+	y: 5
 }
 var predVal = {
-	x: 320,
+	x: 160,
 	y: 100
 }
 var padding = 10;
@@ -24,7 +24,7 @@ var initImage = './slider-faces/pair1-L.jpg';
 var svg = d3.select('#sliderSVG')
 	.attr('preserveAspectRatio', 'xMidYMid meet')
 	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
-	.attr('style', 'outline: thin solid red;');
+	.attr('style', 'outline: thin solid #48A9C5;');
 
 var imageG = svg.append('g')
 	.attr('id', 'imageG')
@@ -43,7 +43,8 @@ var predictedValue = imageG.append('text')
 	.attr('id', 'prediction')
 	.attr('x', predVal.x)
 	.attr('y', predVal.y)
-	.text('0.0');
+	.text('Value: 0')
+	.attr('font-size', '14px');
 
 function transition(thisSlider) {
 	d3.select("#prediction").text('Value: ' + thisSlider.value);
