@@ -30,3 +30,7 @@ div {
 	max-width: 300px;
 	font-family: sans-serif;
 }
+
+img.obj {
+	max-width: 300px;
+}
