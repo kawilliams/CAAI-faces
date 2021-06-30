@@ -18,9 +18,9 @@ var imageDimensions = {
 var padding = 10;
 var numberOfPairs = 1;
 
-var topTextWords = ['These two candidates ran for election. Click on who you think won the election.'];
-var bottomTextWords = ['Click above.'];
-var text = {fontsize: 28}
+var topTextWords = ['Can you beat the computer? These two candidates ran for election. Based solely on their faces, click on the candidate who you think won.'];
+var bottomTextWords = [''];
+var text = {fontsize: 16}
 var answerKey = ['leftImage', 'leftImage', 'leftImage'];
 
 /* Useful function to split text for tspan. 
@@ -35,9 +35,11 @@ function wrapText(rectText, w) {
 
 ////////// Visualization ////////
 var svg = d3.select('#compareSVG')
-	.attr('preserveAspectRatio', 'xMidYMid meet')
-	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
-	.attr('style', 'outline: thin solid red;');
+	// .attr('preserveAspectRatio', 'xMidYMid meet')
+	// .attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
+	.attr('style', 'outline: thin solid red;')
+	.attr('width', svgDimensions.width)
+	.attr('height', svgDimensions.height)
 
 var svgBackground = svg.append('rect')
 	.attr('x', margin.left)
@@ -51,17 +53,16 @@ var topText = svg.append('text')
 	.attr('x', margin.left + padding)
 	.attr('y', margin.top + padding)
 topText.selectAll('text.topTspan')
-	.data(wrapText(topTextWords[0], 40))
+	.data(wrapText(topTextWords[0], 74))
 	.enter()
 	.append('tspan')
 	.attr('class', 'topTspan')
-	.text(d => {
-		return d;
-	})
-	.attr('x', margin.left + padding)
+	.text(d => { return d;})
+	.attr('x', 0.5 * svgDimensions.width)
 	// .attr('y', margin.top + padding)
 	.attr('dy', text.fontsize)
-	.attr('font-size', text.fontsize);
+	.attr('font-size', text.fontsize)
+	.style('text-anchor', 'middle');
 
 
 var imagesG = svg.append('g')
@@ -71,10 +72,12 @@ var imagesG = svg.append('g')
 
 var bottomText = svg.append('text')
 	.attr('id', 'bottomText')
-	.attr('x', margin.left + padding)
-	.attr('y', svgDimensions.height - 50)
+	.attr('x', svgDimensions.width * 0.5)
+	.attr('y', imageDimensions.height + 180)
 	.text(bottomTextWords[0])
-	.attr('font-size', text.fontsize);
+	.attr('font-size', text.fontsize)
+	.attr('fill', '#1B365D')
+	.style('text-anchor', 'middle');
 
 function checkImage(event, i) {
 	
@@ -130,7 +133,8 @@ function checkImage(event, i) {
 		.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
 		.text('Winner')
 		.attr('display', 'none')
-		.attr('font-size', text.fontsize);
+		.attr('font-size', text.fontsize)
+		.style('fill', '#39393a');
 
 
 	var leftImage = imagesG.append('svg:image')

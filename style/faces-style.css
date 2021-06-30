@@ -3,49 +3,56 @@ Colors
 CAII
 #48A9C5 light blue
 #1B365D dark blue
+#39393a dark grey
 */
 
 p {
 	font-family: sans-serif;
-	color:  black;
+	color:  #39393a;
+	font-size:  16px;
+}
+
+text {
+	font-family: sans-serif;
+	color: #39393a;
+	font-size: 16px;
 }
 
 label {
 	font-family: sans-serif;
-	color:  black;
+	color:  #39393a;
 }
-
-input {}
 
 div {
 	padding: 10px;
 	min-height: 500px;
+	background-color: #ececec;
+	text-align: center;
 }
 
+
 #uploadFace {
-	color:  white;
-	border:  none;
-	/*text-align: center;*/
-	max-width: 500px;
-	font-size:  16px;
 
 }
 
 #compareFaces {
-	max-width: 500px;
-	font-family: sans-serif;
+	
 }
-
+#bottomText {
+	text-align: center;
+	color: #1B365D;
+}
 #sliderFaces {
-	max-width: 500px;
 	font-family: sans-serif;
 }
 .sliders {
 	-webkit-appearance: none;
-    background: #48A9C5;
-    width: 50%;
-    height: 10px;
-    opacity: 2;
+    background: lightgray;
+    width: 40%;
+    height: 15px;
+    border-radius: 5px;
+    opacity: 0.7;
+    outline: none;
     margin: 10px;
 }
 .sliders:hover {
@@ -55,9 +62,11 @@ div {
 .sliders::-webkit-slider-thumb {
     -webkit-appearance: none;
     cursor: pointer;
-    background: #1B365D;
-    width: 24px;
-    height: 16px;
+    background: #48A9C5;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+
 }
 
 img.obj {

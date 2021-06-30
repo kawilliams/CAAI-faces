@@ -20,6 +20,7 @@ const fileElem = document.getElementById(fileId);
 
 function submitImage() {
 	var div = document.getElementById('imageContainer');
+	div.attr('style', 'outline: thin solid red;')
 	//Clear existing elements
 	while (div.firstChild) { div.removeChild(div.firstChild); }
 	
