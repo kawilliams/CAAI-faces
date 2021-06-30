@@ -15,8 +15,11 @@
 	<p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
 <!-- 	<form action="upload.php" method="post" enctype="multipart/form-data"> -->
 	<form method="POST" enctype="multipart/form-data" name='faceUploadForm'>
-		<label for="myfile">Select an image (JPEG, PNG):</label>
+		<label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
+		<span id="showFileSelected"></span>
 		<input type="file" id="myfile" name="fileToUpload">
+		
+
 		<br/>
 		<br/>
 		<br/>

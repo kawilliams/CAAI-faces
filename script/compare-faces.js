@@ -1,5 +1,5 @@
 console.log("compare-faces.js");
-var svgDimensions = { width: 550, height: 550};
+var svgDimensions = { width: 550, height: 450};
 var margin = {
 	right: 10,
 	left: 10,
@@ -35,11 +35,9 @@ function wrapText(rectText, w) {
 
 ////////// Visualization ////////
 var svg = d3.select('#compareSVG')
-	// .attr('preserveAspectRatio', 'xMidYMid meet')
-	// .attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
-	.attr('style', 'outline: thin solid red;')
-	.attr('width', svgDimensions.width)
-	.attr('height', svgDimensions.height)
+	.attr('preserveAspectRatio', 'xMidYMid meet')
+	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
+	.attr('style', 'outline: thin solid red;');
 
 var svgBackground = svg.append('rect')
 	.attr('x', margin.left)
@@ -73,7 +71,7 @@ var imagesG = svg.append('g')
 var bottomText = svg.append('text')
 	.attr('id', 'bottomText')
 	.attr('x', svgDimensions.width * 0.5)
-	.attr('y', imageDimensions.height + 180)
+	.attr('y', imageDimensions.height + 170)
 	.text(bottomTextWords[0])
 	.attr('font-size', text.fontsize)
 	.attr('fill', '#1B365D')

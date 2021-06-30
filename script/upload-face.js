@@ -20,7 +20,6 @@ const fileElem = document.getElementById(fileId);
 
 function submitImage() {
 	var div = document.getElementById('imageContainer');
-	div.attr('style', 'outline: thin solid red;')
 	//Clear existing elements
 	while (div.firstChild) { div.removeChild(div.firstChild); }
 	
@@ -61,6 +60,7 @@ function submitImage() {
 		img.src = URL.createObjectURL(file);
 		img.onload = function() { URL.revokeObjectURL(this.src);}
 		div.appendChild(img);
+		document.getElementById("showFileSelected").innerHTML = file.name;
 
 		
 	} else {

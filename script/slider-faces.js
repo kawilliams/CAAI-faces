@@ -22,11 +22,9 @@ var initImage = './slider-faces/pair1-L.jpg';
 
 
 var svg = d3.select('#sliderSVG')
-	// .attr('preserveAspectRatio', 'xMidYMid meet')
-	// .attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
-	.attr('style', 'outline: thin solid #48A9C5;')
-	.attr('width', svgDimensions.width)
-	.attr('height', svgDimensions.height);
+	.attr('preserveAspectRatio', 'xMidYMid meet')
+	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
+	.attr('style', 'outline: thin solid #48A9C5;');
 
 var imageG = svg.append('g')
 	.attr('id', 'imageG')
