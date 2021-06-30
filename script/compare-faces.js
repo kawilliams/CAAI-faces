@@ -89,18 +89,18 @@ function checkImage(event, i) {
 		d3.select('.imageRect.' + imageSide)
 			.style('stroke', 'green')
 			.style('stroke-width', '25px');
-		d3.select('.imageRect.' + otherImageSide)
-			.style('stroke', 'red')
-			.style('stroke-width', '25px');
+		// d3.select('.imageRect.' + otherImageSide)
+		// 	.style('stroke', 'red')
+		// 	.style('stroke-width', '25px');
 		//Add "Winner" text below winner
 		d3.select('text.'+ imageSide).attr('display', 'inline');
 		d3.select('text.'+ otherImageSide).attr('display', 'none');
 	}
 	else {
 		d3.select('#bottomText').text('Incorrect.');
-		d3.select('.imageRect.' + imageSide)
-			.style('stroke', 'red')
-			.style('stroke-width', '25px');
+		// d3.select('.imageRect.' + imageSide)
+		// 	.style('stroke', 'red')
+		// 	.style('stroke-width', '25px');
 		d3.select('.imageRect.' + otherImageSide)
 			.style('stroke', 'green')
 			.style('stroke-width', '25px');
