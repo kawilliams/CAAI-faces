@@ -10,9 +10,10 @@
 <!-- <script src="script/d3.v6.min.js"></script> -->
 
 <body>
+
 <div id="uploadFace" class="svg-container">
 	<p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
-	<!-- <form action="upload.php" method="post" enctype="multipart/form-data"> -->
+<!-- 	<form action="upload.php" method="post" enctype="multipart/form-data"> -->
 	<form method="POST" enctype="multipart/form-data" name='faceUploadForm'>
 		<label for="myfile">Select an image (JPEG, PNG):</label>
 		<input type="file" id="myfile" name="fileToUpload">
@@ -20,10 +21,9 @@
 		<br/>
 		<br/>
 
-		<!-- <input id="uploadImage" type="submit" name="submit" value="Upload Image"> -->
+<!-- 		<input id="uploadImage" type="submit" name="submit" value="Upload Image"> -->
 	</form>
 	<div id='imageContainer'>
-		<p>Image will show here</p>
 	</div>
 
 </div>
@@ -33,11 +33,20 @@
 	</svg>
 </div>
 
-<div id="sliderFaces" class="svg-container">
-	<svg id="sliderSVG">
-	</svg>
-</div>
 
+	<div id="sliderFaces" class="svg-container">
+		<svg id="sliderSVG"></svg>
+		<g id="slidersG">
+			<label for="sliderA">Slider A </label><input type="range" min="1" max="150" id="sliderA" class="sliders" >
+			<br/>
+			<label for="sliderB">Slider B </label><input type="range" min="1" max="150" id="sliderB" class="sliders">
+			<br/>
+			<label for="sliderC">Slider C </label><input type="range" min="1" max="150" id="sliderC" class="sliders">
+			<br/>
+			<label for="sliderD">Slider D </label><input type="range" min="1" max="150" id="sliderD" class="sliders">
+		</g>
+
+	</div>
 <script src="script/upload-face.js"></script>
 <script src="script/compare-faces.js"></script>
 <script src="script/slider-faces.js"></script>

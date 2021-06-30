@@ -7,28 +7,57 @@ CAII
 
 p {
 	font-family: sans-serif;
+	color:  black;
 }
 
 label {
 	font-family: sans-serif;
+	color:  black;
 }
+
+input {}
 
 div {
-	padding: 40px;
+	padding: 10px;
+	min-height: 500px;
 }
 
-#uploadImage {
-	background-color: #1B365D;
+#uploadFace {
 	color:  white;
 	border:  none;
-	padding:  15px 32px;
-	text-align: center;
+	/*text-align: center;*/
+	max-width: 500px;
 	font-size:  16px;
+
 }
 
 #compareFaces {
-	max-width: 300px;
+	max-width: 500px;
 	font-family: sans-serif;
+}
+
+#sliderFaces {
+	max-width: 500px;
+	font-family: sans-serif;
+}
+.sliders {
+	-webkit-appearance: none;
+    background: #48A9C5;
+    width: 50%;
+    height: 10px;
+    opacity: 2;
+    margin: 10px;
+}
+.sliders:hover {
+	opacity: 1;
+}
+
+.sliders::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: #1B365D;
+    width: 24px;
+    height: 16px;
 }
 
 img.obj {
