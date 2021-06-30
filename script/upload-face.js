@@ -60,6 +60,7 @@ function submitImage() {
 		img.src = URL.createObjectURL(file);
 		img.onload = function() { URL.revokeObjectURL(this.src);}
 		div.appendChild(img);
+		document.getElementById("showFileSelected").innerHTML = file.name;
 
 		
 	} else {
