@@ -30,7 +30,7 @@ var i = 0;
 var topTextWords = ['Can you beat the computer? These two candidates ran for election. Based solely on their faces, click on the candidate who you think won.'];
 var bottomTextWords = [''];
 var text = {fontsize: 16}
-var answerKey = ['leftImage', 'leftImage', 'rightImage'];
+var answerKey = ['leftImage', 'leftImage', 'rightImage', 'rightImage'];
 
 /* Useful function to split text for tspan. 
 Gives the effect of text wrapping. */
@@ -42,11 +42,13 @@ function wrapText(rectText, w) {
 	return wrapList;
 }
 
-function checkImage(event, i) {
+function checkImage() {
 	var imageClass = d3.select(this).attr('class');
-	var imageSide = imageClass.split(' ')[0];
+	var imageId = d3.select(this).attr('id');
 	
-	var pairNumber = +(imageClass.split(' ')[1].split('-')[0]);
+	var imageSide = imageClass.split(' ')[0];
+	console.log("i", i);
+	var pairNumber = +(imageClass.split(' ')[1][0]);
 	var otherImageSide = (imageSide == 'rightImage') ? 'leftImage' : 'rightImage';
 	
 	if (imageSide == answerKey[pairNumber]) {
@@ -55,7 +57,6 @@ function checkImage(event, i) {
 			.style('stroke', 'green')
 			.style('stroke-width', '10px');
 		d3.select('.imageRect.' + otherImageSide)
-			.style('stroke', 'red')
 			.style('stroke-width', '10px')
 			.style('fill', 'white')
 			.attr('opacity', '30%');
@@ -68,7 +69,6 @@ function checkImage(event, i) {
 		d3.select('.imageRect.' + imageSide)
 			.style('fill', 'white')
 			.attr('opacity', '30%')
-			.style('stroke', 'red')
 			.style('stroke-width', '10px')
 		d3.select('.imageRect.' + otherImageSide)
 			.style('stroke', 'green')
@@ -86,12 +86,23 @@ function changeImages() {
 
 	d3.select('#leftImageId')
 		.attr('xlink:href', filenameLeft)
+		.attr('class', 'leftImage ' + i + "-pair")
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
 	d3.select('#rightImageId')
 		.attr('xlink:href', filenameRight)
+		.attr('class', 'rightImage ' + i + "-pair")
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
+	d3.selectAll(".imageRect")
+		.attr('stroke-width', 0)
+		.attr('opacity', 0);
+	d3.select('#leftRectId')
+		.attr('class', 'leftImage ' + i + "-pair imageRect");
+	d3.select('#rightRectId')
+		.attr('class', 'rightImage ' + i + "-pair imageRect");
+
+	d3.selectAll(".imageText").attr('display', 'none');
 }
 
 ////////// Visualization ////////
@@ -173,14 +184,15 @@ var leftImage = imagesG.append('svg:image')
 var leftRect = imagesG.append('rect')
 	.attr('x', imageDimensions.xleft - 5)
 	.attr('y', imageDimensions.yleft - 5)
+	.attr('id', 'leftRectId')
 	.attr('width', imageDimensions.width + 10)
 	.attr('height', imageDimensions.height + 10)
-	.attr('class', 'imageRect leftImage ' + i + "-pair")
+	.attr('class', 'leftImage ' + i + "-pair imageRect")
 	.style('stroke-width', '0px')
 	.style('fill', 'none')
 	.on('click', checkImage);
 imagesG.append('text')
-	.attr('class', 'leftImage')
+	.attr('class', 'leftImage imageText')
 	.attr('x', 0.5 * imageDimensions.width - 2)
 	.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
 	.text('Winner')
@@ -202,14 +214,15 @@ var rightImage = imagesG.append('svg:image')
 var rightRect = imagesG.append('rect')
 	.attr('x', imageDimensions.xright - 5)
 	.attr('y', imageDimensions.yright - 5)
+	.attr('id', 'rightRectId')
 	.attr('width', imageDimensions.width + 10)
 	.attr('height', imageDimensions.height + 10)
-	.attr('class', 'imageRect rightImage ' + i + "-pair")
+	.attr('class', 'rightImage ' + i + "-pair imageRect")
 	.style('stroke-width', '0px')
 	.style('fill', 'none')
 	.on('click', checkImage);
 imagesG.append('text')
-	.attr('class', 'rightImage')
+	.attr('class', 'rightImage imageText')
 	.attr('x', imageDimensions.xright + 60)
 	.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
 	.text('Winner')
