@@ -1,5 +1,5 @@
 console.log("compare-faces.js");
-var svgDimensions = { width: 550, height: 450};
+var svgDimensions = { width: 550, height: 300};
 var margin = {
 	right: 10,
 	left: 10,
@@ -8,12 +8,12 @@ var margin = {
 };
 
 var imageDimensions = {
-	height: 266,
+	height: 200,
 	width: 200,
 	xleft: 40,
 	xright: 310,
-	yleft: 100,
-	yright: 100
+	yleft: 10,
+	yright: 10
 };
 
 var nextDimensions = {
@@ -24,10 +24,9 @@ var nextDimensions = {
 };
 
 var padding = 10;
-var numberOfPairs = 4;
+var numberOfPairs = 3;
 var i = 0;
 
-var topTextWords = ['Can you beat the computer? These two candidates ran for election. Based solely on their faces, click on the candidate who you think won.'];
 var bottomTextWords = [''];
 var text = {fontsize: 16}
 var answerKey = ['leftImage', 'leftImage', 'leftImage', 'leftImage'];
@@ -51,9 +50,9 @@ function checkImage() {
 	var otherImageSide = (imageSide == 'rightImage') ? 'leftImage' : 'rightImage';
 	var winner = answerKey[pairNumber];
 	var loser = (winner == 'rightImage') ? 'leftImage' : 'rightImage';
-	//Outline the winner's photo in green
+	//Outline the winner's photo in light blue
 	d3.select('.imageRect.' + winner)
-		.style('stroke', 'green')
+		.style('stroke', '#48A9C5')
 		.style('stroke-width', '10px');
 	//Fade the loser's photo
 	d3.select('.imageRect.' + loser)
@@ -110,23 +109,6 @@ var svgBackground = svg.append('rect')
 	.attr('width', svgDimensions.width - 20)
 	.attr('height', svgDimensions.height - 20)
 	.attr('fill', 'none');
-
-var topText = svg.append('text')
-	.attr('id', 'topText')
-	.attr('x', margin.left + padding)
-	.attr('y', margin.top + padding)
-topText.selectAll('text.topTspan')
-	.data(wrapText(topTextWords[0], 74))
-	.enter()
-	.append('tspan')
-	.attr('class', 'topTspan')
-	.text(d => { return d;})
-	.attr('x', 0.5 * svgDimensions.width)
-	// .attr('y', margin.top + padding)
-	.attr('dy', text.fontsize)
-	.attr('font-size', text.fontsize)
-	.style('text-anchor', 'middle');
-
 
 var imagesG = svg.append('g')
 	.attr('id', 'imagesG')
