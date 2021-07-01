@@ -30,7 +30,7 @@ var i = 0;
 var topTextWords = ['Can you beat the computer? These two candidates ran for election. Based solely on their faces, click on the candidate who you think won.'];
 var bottomTextWords = [''];
 var text = {fontsize: 16}
-var answerKey = ['leftImage', 'leftImage', 'rightImage', 'rightImage'];
+var answerKey = ['leftImage', 'leftImage', 'leftImage', 'leftImage'];
 
 /* Useful function to split text for tspan. 
 Gives the effect of text wrapping. */
@@ -47,35 +47,28 @@ function checkImage() {
 	var imageId = d3.select(this).attr('id');
 	
 	var imageSide = imageClass.split(' ')[0];
-	console.log("i", i);
 	var pairNumber = +(imageClass.split(' ')[1][0]);
 	var otherImageSide = (imageSide == 'rightImage') ? 'leftImage' : 'rightImage';
+	var winner = answerKey[pairNumber];
+	var loser = (winner == 'rightImage') ? 'leftImage' : 'rightImage';
+	//Outline the winner's photo in green
+	d3.select('.imageRect.' + winner)
+		.style('stroke', 'green')
+		.style('stroke-width', '10px');
+	//Fade the loser's photo
+	d3.select('.imageRect.' + loser)
+		.style('stroke-width', '10px')
+		.style('fill', '#ececec') //match background light grey
+		.style('opacity', '30%');
+	//Add "Winner" text below winner
+	d3.select('text.'+ winner).attr('display', 'inline');
+	d3.select('text.'+ loser).attr('display', 'none');
 	
 	if (imageSide == answerKey[pairNumber]) {
 		d3.select('#bottomText').text('Correct!');
-		d3.select('.imageRect.' + imageSide)
-			.style('stroke', 'green')
-			.style('stroke-width', '10px');
-		d3.select('.imageRect.' + otherImageSide)
-			.style('stroke-width', '10px')
-			.style('fill', 'white')
-			.attr('opacity', '30%');
-		//Add "Winner" text below winner
-		d3.select('text.'+ imageSide).attr('display', 'inline');
-		d3.select('text.'+ otherImageSide).attr('display', 'none');
 	}
 	else {
 		d3.select('#bottomText').text('Incorrect.');
-		d3.select('.imageRect.' + imageSide)
-			.style('fill', 'white')
-			.attr('opacity', '30%')
-			.style('stroke-width', '10px')
-		d3.select('.imageRect.' + otherImageSide)
-			.style('stroke', 'green')
-			.style('stroke-width', '10px');
-		//Add "Winner" text below winner
-		d3.select('text.'+ imageSide).attr('display', 'none');
-		d3.select('text.'+ otherImageSide).attr('display', 'inline');
 	}
 }
 
@@ -95,8 +88,8 @@ function changeImages() {
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
 	d3.selectAll(".imageRect")
-		.attr('stroke-width', 0)
-		.attr('opacity', 0);
+		.style('stroke-width', '0px')
+		.style('fill', 'none');
 	d3.select('#leftRectId')
 		.attr('class', 'leftImage ' + i + "-pair imageRect");
 	d3.select('#rightRectId')
@@ -143,7 +136,7 @@ var imagesG = svg.append('g')
 var bottomText = svg.append('text')
 	.attr('id', 'bottomText')
 	.attr('x', svgDimensions.width * 0.5)
-	.attr('y', imageDimensions.height + 170)
+	.attr('y', svgDimensions.height - 100)
 	.text(bottomTextWords[0])
 	.attr('font-size', text.fontsize)
 	.attr('fill', '#1B365D')
