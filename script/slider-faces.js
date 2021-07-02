@@ -18,8 +18,8 @@ var predVal = {
 	y: 100
 }
 var padding = 10;
-var prefix = './slider-faces/images/seed_200_var';
-var initImage = './slider-faces/images/seed_200_var_100.png';
+var prefix = './slider-faces/renamed_images/seed_200_var_';
+var initImage = './slider-faces/renamed_images/seed_200_var_bddd.png';
 
 var svg = d3.select('#sliderSVG')
 	.attr('preserveAspectRatio', 'xMidYMid meet')
@@ -34,6 +34,7 @@ var imageG = svg.append('g')
 var image = imageG.append('svg:image')
 	.attr('x', imageDimensions.x)
 	.attr('y', imageDimensions.y)
+	.attr('id', 'electionImage')
 	.attr('width', imageDimensions.width)
 	.attr('height', imageDimensions.height)
 	.attr('class', 'slider')
@@ -46,6 +47,18 @@ var predictedValue = imageG.append('text')
 	.text('Value: 0')
 	.attr('font-size', '10em');
 
+const valueCode = {
+	'-1' : 'a',
+	'-0.75' : 'b',
+	'-0.5' : 'c',
+	'-0.25' : 'd',
+	'0' : 'e',
+	'0.25' : 'f',
+	'0.5' : 'g',
+	'0.75' : 'h',
+	'1' : 'i'
+}
+
 d3.csv("./slider-faces/metadata/meta_combined.csv").then(function(data){
 
 	function transition(thisSlider) {
@@ -54,6 +67,11 @@ d3.csv("./slider-faces/metadata/meta_combined.csv").then(function(data){
 		var val2 = document.getElementById("slider_2").value;
 		var val3 = document.getElementById("slider_3").value;
 		var val4 = document.getElementById("slider_4").value;
+
+		var imageCode = valueCode[val1]+valueCode[val2]+valueCode[val3]+valueCode[val4];
+		var nextImage = prefix + imageCode + '.png';
+		d3.select('#electionImage')
+			.attr('xlink:href', nextImage);
 		
 	}
 
