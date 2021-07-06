@@ -1,4 +1,3 @@
-console.log("upload-face.js");
 /*
 form name='faceUploadForm'
 input id='myfile', name='fileToUpload'

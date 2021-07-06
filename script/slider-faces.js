@@ -1,4 +1,3 @@
-console.log("slider-faces.js");
 var svgDimensions = { width: 230, height: 210};
 var margin = {
 	right: 10,

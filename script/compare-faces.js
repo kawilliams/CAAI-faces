@@ -1,4 +1,3 @@
-console.log("compare-faces.js");
 var svgDimensions = { width: 550, height: 300};
 var margin = {
 	right: 10,
