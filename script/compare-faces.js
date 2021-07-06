@@ -22,23 +22,12 @@ var nextDimensions = {
 	height: 50
 };
 
-var padding = 10;
 var numberOfPairs = 3;
 var i = 0;
 
 var bottomTextWords = [''];
 var text = {fontsize: 16}
 var answerKey = ['leftImage', 'leftImage', 'leftImage', 'leftImage'];
-
-/* Useful function to split text for tspan. 
-Gives the effect of text wrapping. */
-function wrapText(rectText, w) {
-	var wrap = rectText.replace(
-		new RegExp(`(?![^\\n]{1,${w}}$)([^\\n]{1,${w}})\\s`, 'g'), '$1\n'
-	);
-	var wrapList = wrap.split('\n');
-	return wrapList;
-}
 
 function checkImage() {
 	var imageClass = d3.select(this).attr('class');
