@@ -16,7 +16,7 @@ var predVal = {
 	x: 160,
 	y: 100
 }
-var padding = 10;
+
 var prefix = './slider-faces/renamed_images/seed_200_var_';
 var initImage = './slider-faces/renamed_images/seed_200_var_bddd.png';
 
@@ -74,6 +74,7 @@ d3.csv("./slider-faces/metadata/meta_combined.csv").then(function(data){
 		
 	}
 
+	// Slider controls
 	var slider_1 = document.getElementById('slider_1');
 	slider_1.oninput = function() {
 		var thisSlider = this;
