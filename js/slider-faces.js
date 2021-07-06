@@ -22,8 +22,8 @@ var initImage = './slider-faces/renamed_images/seed_200_var_bddd.png';
 
 var svg = d3.select('#sliderSVG')
 	.attr('preserveAspectRatio', 'xMidYMid meet')
-	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
-	.attr('style', 'outline: thin solid #48A9C5;');
+	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height);
+	// .attr('style', 'outline: thin solid #48A9C5;');
 
 var imageG = svg.append('g')
 	.attr('id', 'imageG')
@@ -39,11 +39,17 @@ var image = imageG.append('svg:image')
 	.attr('class', 'slider')
 	.attr('xlink:href', initImage);
 
+imageG.append('text')
+	.attr('x', predVal.x)
+	.attr('y', predVal.y-16)
+	.text('Value:')
+	.attr('font-size', '10em');
+
 var predictedValue = imageG.append('text')
 	.attr('id', 'prediction')
 	.attr('x', predVal.x)
 	.attr('y', predVal.y)
-	.text('Value: 0')
+	.text('0')
 	.attr('font-size', '10em');
 
 const valueCode = {
@@ -61,7 +67,7 @@ const valueCode = {
 d3.csv("./slider-faces/metadata/meta_combined.csv").then(function(data){
 
 	function transition(thisSlider) {
-		d3.select("#prediction").text('Value: ' + thisSlider.value);
+		d3.select("#prediction").text(thisSlider.value);
 		var val1 = document.getElementById("slider_1").value;
 		var val2 = document.getElementById("slider_2").value;
 		var val3 = document.getElementById("slider_3").value;

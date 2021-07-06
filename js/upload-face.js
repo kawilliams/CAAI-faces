@@ -17,7 +17,7 @@ function submitImage() {
 	
 	//Only accept the first file
 	var file = this.files[0];
-	console.log(file);
+	
 	//Check file MIME type
 	if (file.type.startsWith('image/')) {
 		uploadOk = 1;

@@ -88,8 +88,7 @@ function changeImages() {
 ////////// Visualization ////////
 var svg = d3.select('#compareSVG')
 	.attr('preserveAspectRatio', 'xMidYMid meet')
-	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height)
-	.attr('style', 'outline: thin solid red;');
+	.attr('viewBox', '0 0 ' + svgDimensions.width + ' ' +svgDimensions.height);
 
 var svgBackground = svg.append('rect')
 	.attr('x', margin.left)
