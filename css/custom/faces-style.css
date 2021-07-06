@@ -23,7 +23,7 @@ label {
 	color:  #39393a;
 }
 
-div {
+div#uploadFace {
 	padding: 10px;
 	background-color: #ececec;
 	text-align: center;
@@ -33,15 +33,20 @@ span {
 	font-family: sans-serif;
 }
 
+
+/* Mobile version */
 @media only screen and (max-width: 424px) {
 	body{
 		background-color: pink;
 	} 
 }
 
-#uploadFace {
-
-}
+/*div#uploadFace {
+	padding: 10px;
+	background-color: #ececec;
+	text-align: center;
+	word-wrap: normal;
+}*/
 
 input[type="file"] {
 	display: none;
