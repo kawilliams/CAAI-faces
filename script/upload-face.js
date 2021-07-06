@@ -5,38 +5,27 @@ input id='myfile', name='fileToUpload'
 input id='uploadImage', name='submit', value='Upload Image'
 */
 
-const svgId = "uploadSVG";
-const divId = "uploadFace";
-// const formName = "faceUpload";
 const fileId = "myfile";
-// const submitId = "uploadImage";
-
-const target_dir = 'uploaded-faces/';
 var uploadOk = 1;
 var error = "";
 
-// const fileInput = document.getElementById("uploadImage");
 const fileElem = document.getElementById(fileId);
 
 function submitImage() {
-	var div = document.getElementById('imageContainer');
 	//Clear existing elements
+	var div = document.getElementById('imageContainer');
 	while (div.firstChild) { div.removeChild(div.firstChild); }
 	
 	//Only accept the first file
 	var file = this.files[0];
-
-	//Check file type
+	console.log(file);
+	//Check file MIME type
 	if (file.type.startsWith('image/')) {
 		uploadOk = 1;
 	} else {
 		error += "File is not an image. ";
 		uploadOk = 0;
 	}
-
-
-	//Check if file already exists
-	var fullFileName = target_dir + file.name;
 
 	//Check file size
 	if (file.size > 5000000) { //5 MB
