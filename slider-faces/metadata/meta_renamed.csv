@@ -1,3 +1,4 @@
+,img_name,image_id,image_seed,slider_1,slider_2,slider_3,slider_4,pred_release,slider_value_sum,renamed_img
 6561,seed_200_var_1.png,1,200,-1,-1,-1,-1,0.950660348,4,seed_200_var_aaaa.png
 6562,seed_200_var_2.png,2,200,-1,-1,-1,-0.75,0.950041175,3.75,seed_200_var_aaab.png
 6563,seed_200_var_3.png,3,200,-1,-1,-1,-0.5,0.946395993,3.5,seed_200_var_aaac.png
