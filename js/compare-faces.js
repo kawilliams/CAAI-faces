@@ -26,8 +26,7 @@ var numberOfPairs = 3;
 var i = 0;
 
 var bottomTextWords = [''];
-var text = {fontsize: 16}
-var answerKey = ['leftImage', 'leftImage', 'leftImage', 'leftImage'];
+var answerKey = ['leftImage', 'rightImage', 'leftImage', 'rightImage'];
 
 function checkImage() {
 	var imageClass = d3.select(this).attr('class');
@@ -52,10 +51,13 @@ function checkImage() {
 	d3.select('text.'+ loser).attr('display', 'none');
 	
 	if (imageSide == answerKey[pairNumber]) {
-		d3.select('text.'+ winner).text('Correct!');
+		d3.select('text.'+ winner).text('Correct!')
+			.attr('x', (winner == 'leftImage') ? 103 : 103);
 	}
 	else {
-		d3.select('text.'+ winner).text('Actual winner');
+		d3.select('text.'+ winner).text('Actual winner')
+			.attr('x', (winner == 'leftImage') ? 80 : 80);
+
 	}
 }
 
@@ -150,7 +152,6 @@ imagesG.append('text')
 	.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
 	.text('Actual Winner')
 	.attr('display', 'none')
-	.attr('font-size', text.fontsize)
 	.style('fill', '#39393a');
 
 var rightImage = imagesG.append('svg:image')
@@ -179,5 +180,4 @@ imagesG.append('text')
 	.attr('x', imageDimensions.xright + 60)
 	.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
 	.text('Winner')
-	.attr('display', 'none')
-	.attr('font-size', text.fontsize);
+	.attr('display', 'none');
