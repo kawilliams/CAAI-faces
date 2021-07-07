@@ -1,4 +1,4 @@
-var svgDimensions = { width: 550, height: 300};
+var svgDimensions = { width: 550, height: 350};
 var margin = {
 	right: 10,
 	left: 10,
@@ -52,10 +52,10 @@ function checkImage() {
 	d3.select('text.'+ loser).attr('display', 'none');
 	
 	if (imageSide == answerKey[pairNumber]) {
-		d3.select('#bottomText').text('Correct!');
+		d3.select('text.'+ winner).text('Correct!');
 	}
 	else {
-		d3.select('#bottomText').text('Incorrect.');
+		d3.select('text.'+ winner).text('Actual winner');
 	}
 }
 
@@ -101,15 +101,6 @@ var imagesG = svg.append('g')
 	.attr('id', 'imagesG')
 	.attr('x', margin.left)
 	.attr('y', margin.right);
-
-var bottomText = svg.append('text')
-	.attr('id', 'bottomText')
-	.attr('x', svgDimensions.width * 0.5)
-	.attr('y', svgDimensions.height - 100)
-	.text(bottomTextWords[0])
-	.attr('font-size', text.fontsize)
-	.attr('fill', '#1B365D')
-	.style('text-anchor', 'middle');
 
 var nextButton = svg.append('rect')
 	.attr('x', nextDimensions.x)
@@ -157,7 +148,7 @@ imagesG.append('text')
 	.attr('class', 'leftImage imageText')
 	.attr('x', 0.5 * imageDimensions.width - 2)
 	.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
-	.text('Winner')
+	.text('Actual Winner')
 	.attr('display', 'none')
 	.attr('font-size', text.fontsize)
 	.style('fill', '#39393a');

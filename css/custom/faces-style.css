@@ -33,6 +33,15 @@ span {
 	font-family: sans-serif;
 }
 
+.visTitle {
+	text-align: center;
+	color: #1B365D;
+	font-family: 'TradeGothic BoldCn 20';
+	font-weight: inherit;
+	font-size: 2em;
+	letter-spacing: 0rem;
+}
+
 
 /* Mobile version */
 @media only screen and (max-width: 424px) {
@@ -62,11 +71,20 @@ input[type="file"] {
 
 
 #compareFaces {
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #ececec;
+	text-align: center;
+	word-wrap: normal;
 	
 }
-#bottomText {
+text.leftImage {
 	text-align: center;
 	color: #1B365D;
+	font-family: 'TradeGothic BoldCn 20';
+	font-weight: inherit;
+	letter-spacing: 0rem;
 }
 
 #slidersDiv {
