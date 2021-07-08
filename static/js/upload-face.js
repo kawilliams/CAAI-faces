@@ -49,8 +49,6 @@ function submitImage() {
 		img.onload = function() { URL.revokeObjectURL(this.src);}
 		div.appendChild(img);
 		document.getElementById("showFileSelected").innerHTML = file.name;
-
-		
 	} else {
 		//There was an error
 		const errorMsg = document.createElement("p");
@@ -58,10 +56,7 @@ function submitImage() {
 		div.appendChild(errorMsg);
 		
 	}
-
-
 }
-
 
 /// Listen for uploads
 fileElem.addEventListener("change", submitImage, false);

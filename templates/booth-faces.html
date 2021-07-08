@@ -371,19 +371,22 @@
                <div id="uploadFace" class="svg-container">
                   <p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
                      <form method="POST" enctype="multipart/form-data" name='faceUploadForm'>
-                     <label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
-                     <span id="showFileSelected"></span>
-                     <input type="file" id="myfile" name="fileToUpload">
+                     <!-- <label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
+                     <span id="showFileSelected"></span> -->
+                     <!-- <input type="file" id="myfile" name="fileToUpload"> -->
+                     <input type="file" name="fileToUpload">
+                     <input type="submit" value="Upload Image" name="submit">
+                  <!-- <br/>
                   <br/>
-                  <br/>
-                  <br/>
+                  <br/> -->
                </form>
                <div id='imageContainer'>
                </div>
-               <p id="yourPrediction">{{ GANprediction }}</p>
+               <p id="yourPrediction">{{ yourPrediction }}</p>
+               <p id="error">{{ error }}</p>
                </div>
                <!-- Script to create 'upload vis', written by Katy Williams -->
-            <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script>
+            <!-- <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script> -->
            
                </div>
                </div>
