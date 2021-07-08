@@ -1,0 +1,149 @@
+/* 
+Colors
+CAII
+#48A9C5 light blue
+#1B365D dark blue
+#39393a dark grey
+*/
+
+p {
+	font-family: sans-serif;
+	color:  #39393a;
+	font-size:  16px;
+}
+
+text {
+	font-family: sans-serif;
+	color: #39393a;
+	font-size: 16px;
+}
+
+label {
+	font-family: sans-serif;
+	color:  #39393a;
+}
+
+div#uploadFace {
+	padding: 10px;
+	background-color: #ececec;
+	text-align: center;
+	word-wrap: normal;
+}
+span {
+	font-family: sans-serif;
+}
+
+.visTitle {
+	text-align: center;
+	color: #1B365D;
+	font-family: 'TradeGothic BoldCn 20';
+	font-weight: inherit;
+	font-size: 2em;
+	letter-spacing: 0rem;
+}
+
+
+/* Mobile version */
+@media only screen and (max-width: 424px) {
+	body{
+		background-color: pink;
+	} 
+}
+
+/*div#uploadFace {
+	padding: 10px;
+	background-color: #ececec;
+	text-align: center;
+	word-wrap: normal;
+}*/
+
+input[type="file"] {
+	display: none;
+}
+.custom-file-upload {
+	border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #1B365D;
+    color:  white;
+}
+
+
+#compareFaces {
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #ececec;
+	text-align: center;
+	word-wrap: normal;
+	
+}
+text.leftImage {
+	text-align: center;
+	color: #1B365D;
+	font-family: 'TradeGothic BoldCn 20';
+	font-weight: inherit;
+	letter-spacing: 0rem;
+	font-size: 1.5em;
+}
+text.rightImage {
+	text-align: center;
+	color: #1B365D;
+	font-family: 'TradeGothic BoldCn 20';
+	font-weight: inherit;
+	letter-spacing: 0rem;
+	font-size: 1.5em;
+}
+
+#slidersDiv {
+	width: 300px;
+	position: relative;
+}
+
+#sliderImageDiv {
+	position: relative;
+	height: 281px;
+	width: 220px; /*281px;*/
+	margin: 0 auto;
+}
+
+#sliderImageDiv img {
+	position: absolute;
+	left: 0;
+}
+
+.sliderImage {
+	max-width: 220px;
+	max-height:  220px;
+}
+#sliderFaces {
+	font-family: sans-serif;
+}
+.sliders {
+	-webkit-appearance: none;
+    background: lightgray;
+    width: 70%;
+    height: 15px;
+    border-radius: 5px;
+    opacity: 0.7;
+    outline: none;
+    margin: 10px;
+}
+.sliders:hover {
+	opacity: 1;
+}
+
+.sliders::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: #48A9C5;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+
+}
+
+/*img.obj {
+	max-width: 300px;
+}*/
