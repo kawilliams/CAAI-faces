@@ -60,14 +60,14 @@ span {
 /*input[type="file"] {
 	display: none;
 }*/
-.custom-file-upload {
+/*.custom-file-upload {
 	border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
     background-color: #1B365D;
     color:  white;
-}
+}*/
 
 
 #compareFaces {
