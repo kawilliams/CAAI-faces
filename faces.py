@@ -12,17 +12,17 @@ Installed Flask in a virtual environment (venv/).
 import os
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
+from simpleClass import ImagePredictor
 
 UPLOAD_FOLDER = 'static/uploaded-faces'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 1024*1024
+app.config['MAX_CONTENT_LENGTH'] = 5*1024*1024
 
-def evaluateImage():
-	prediction = 2222222
-	return prediction
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/")
 def index():
@@ -36,32 +36,17 @@ def upload_file():
 		return redirect(url_for('index'))
 	
 	upload_file = request.files['fileToUpload']
-	if upload_file.filename != '':
-		upload_file.save(os.path.join(app.config['UPLOAD_FOLDER'], upload_file.filename))
-		yourPrediction = evaluateImage()
-	return render_template('booth-faces.html', error=error, yourPrediction=yourPrediction)
+	if upload_file.filename == '':
+		error = "No file selected"
+		return render_template('booth-faces.html', error=error)
+	if upload_file and allowed_file(upload_file.filename):
 
+		safe_filename = secure_filename(upload_file.filename)
+		upload_file.save(os.path.join(app.config['UPLOAD_FOLDER'], safe_filename))
 
-# @app.route("/", methods=['POST']) #,'GET'])
-# def showGANPrediction(yourPrediction=None):
-# 	error = None
-# 	if request.method == 'POST':
-# 		print("KATY: post")
-# 		if 'file' not in request.files:
-# 			#flash('No file attached')
-# 			return redirect(request.url)
-# 		f = request.files['file']
-# 		if f.filename == '':
-# 			#flash('No file selected')
-# 			return redirect(request.url)
-# 		if f and allowed_file(f.filename):
-# 			print("KATY: we have a filename")
-# 			filename = secure_filename(f.filename)
-# 			f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-# 			print("SAVED the file", filename)
-# 			return redirect(url_for('index'), yourPrediction=yourPrediction, error=error)
+		yourImagePredictor = ImagePredictor(safe_filename)
+		yourPrediction = yourImagePredictor.callDummyFunction()
+		yourImage = UPLOAD_FOLDER+"/"+safe_filename
 
-	
-# 	yourPrediction = evaluateImage()
-# 	return render_template('booth-faces.html', yourPrediction=yourPrediction, error=error)
+	return render_template('booth-faces.html', error=error, yourPrediction=yourPrediction, yourImage=yourImage)
 	

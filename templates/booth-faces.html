@@ -345,6 +345,7 @@
                   <span class="visual-element"></span>
                   <div class="body-copy">
                      <p>
+               <a href="{{ url_for('.index', _anchor='uploadFaceSection') }}">JUMP DOWN</a>
                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat. Vulputate eu scelerisque felis imperdiet proin. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Orci ac auctor augue mauris augue neque. Diam maecenas sed enim ut sem viverra aliquet eget. Donec ultrices tincidunt arcu non. Urna nec tincidunt praesent semper feugiat nibh sed. Phasellus vestibulum lorem sed risus ultricies. Amet nulla facilisi morbi tempus iaculis urna id volutpat.
             </p>
             <p>
@@ -367,8 +368,9 @@
             <!-- Import the d3 library -->
             <script src="https://d3js.org/d3.v6.min.js"></script>
 
-            
+               <section id="uploadFaceSection">
                <div id="uploadFace" class="svg-container">
+                  <span class="visTitle">Upload Vis</span>
                   <p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
                   <form method="POST" enctype="multipart/form-data" name='faceUploadForm'>
                      <!-- <label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
@@ -377,14 +379,21 @@
                      <p>File<input type="file" name="fileToUpload"></p>
                      <p>Submit<input type="submit" value="submit" name="submit"></p>
                      <p id="yourPrediction">{{ yourPrediction }}</p>
-               <p id="error">{{ error }}</p>
+               
+                     {% if error %}
+                        <p id="error">{{ error }}</p>
+                     {% endif %}
                   <!-- <br/>
                   <br/>
                   <br/> -->
-               </form>
-               <div id='imageContainer'>
+                  </form>
+                  <div id='imageContainer'>
+                     {% if yourImage %}
+                     <img src="{{ yourImage }}" />
+                     {% endif %}
+                  </div>
                </div>
-               </div>
+            </section>
                <!-- Script to create 'upload vis', written by Katy Williams -->
             <!-- <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script> -->
            
