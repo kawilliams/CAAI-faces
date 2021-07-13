@@ -23,6 +23,8 @@ And the following should appear:
 ```
 Open a browser tab and navigate to http://127.0.0.1:5000/. The Chicago Booth webpage should appear.
 
+To stop hosting the webpage, press `CTRL+C`. To deactivate the virtual environment, type `deactivate` into the terminal.
+
 ## Troubleshooting
 If an error arises locating or identifying the Flask app, try the following:
 ```
