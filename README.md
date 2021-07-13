@@ -6,6 +6,11 @@ Since we need to interact with a Python wrapper for the CNN, the webpage is now 
 ```
 . venv/bin/activate
 ```
+First we need to tell Flask the name of our app and that we are running in development mode:
+```
+export FLASK_APP=faces
+export FLASK_ENV=development
+```
 Now we can run the Flask app:
 ```
 flask run
@@ -24,16 +29,4 @@ And the following should appear:
 Open a browser tab and navigate to http://127.0.0.1:5000/. The Chicago Booth webpage should appear.
 
 To stop hosting the webpage, press `CTRL+C`. To deactivate the virtual environment, type `deactivate` into the terminal.
-
-## Troubleshooting
-If an error arises locating or identifying the Flask app, try the following:
-```
-export FLASK_APP=faces
-```
-
-If an error arises involving something with the environment or "development", try the following:
-```
-export FLASK_ENV=development
-flask run
-```
 
