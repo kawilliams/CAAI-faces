@@ -367,8 +367,15 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='css/custom/faces-style.css') }}">
             <!-- Import the d3 library -->
             <script src="https://d3js.org/d3.v6.min.js"></script>
-
+            {% if set_tab %}
+            <script>
+               document.addEventListener("DOMContentLoaded", function() {
+                  document.location.hash = '#uploadFaceSection';
+               });
+            </script>
+            {% endif %}
                <section id="uploadFaceSection">
+                  <a id="uploadFaceA">
                <div id="uploadFace" class="svg-container">
                   <span class="visTitle">Upload Vis</span>
                   <p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
@@ -392,7 +399,9 @@
                      <img src="{{ yourImage }}" />
                      {% endif %}
                   </div>
+                  
                </div>
+            </a>
             </section>
                <!-- Script to create 'upload vis', written by Katy Williams -->
             <!-- <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script> -->
