@@ -6,20 +6,13 @@ CAII
 #39393a dark grey
 */
 
-p {
-	font-family: sans-serif;
-	color:  #39393a;
-	font-size:  16px;
-}
 
 text {
-	font-family: sans-serif;
 	color: #39393a;
 	font-size: 16px;
 }
 
 label {
-	font-family: sans-serif;
 	color:  #39393a;
 }
 
@@ -29,6 +22,7 @@ div#uploadFace {
 	text-align: center;
 	word-wrap: normal;
 }
+
 span {
 	font-family: sans-serif;
 }
@@ -50,24 +44,19 @@ span {
 	} 
 }
 
-/*div#uploadFace {
-	padding: 10px;
-	background-color: #ececec;
-	text-align: center;
-	word-wrap: normal;
-}*/
 
-/*input[type="file"] {
+
+input[type="file"] {
 	display: none;
-}*/
-/*.custom-file-upload {
+}
+.custom-file-upload {
 	border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
     background-color: #1B365D;
     color:  white;
-}*/
+}
 
 
 #compareFaces {
@@ -143,7 +132,3 @@ text.rightImage {
     border-radius: 50%;
 
 }
-
-/*img.obj {
-	max-width: 300px;
-}*/

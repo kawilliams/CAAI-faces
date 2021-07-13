@@ -48,5 +48,5 @@ def upload_file():
 		yourPrediction = yourImagePredictor.callDummyFunction()
 		yourImage = UPLOAD_FOLDER+"/"+safe_filename
 
-	return render_template('booth-faces.html', set_tab=1, error=error, yourPrediction=yourPrediction, yourImage=yourImage)
+	return render_template('booth-faces.html', set_tab=1, error=error, yourPrediction=yourPrediction, yourImage=yourImage, imageName=safe_filename)
 	
