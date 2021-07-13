@@ -21,6 +21,7 @@ And the following should appear:
  * Debugger is active!
  * Debugger PIN: 869-640-629
 ```
+Open a browser tab and navigate to http://127.0.0.1:5000/. The Chicago Booth webpage should appear.
 
 ## Troubleshooting
 If an error arises locating or identifying the Flask app, try the following:
