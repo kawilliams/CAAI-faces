@@ -56,7 +56,7 @@ function checkImage() {
 	if (imageSide == answerKey[pairNumber]) {
 		d3.select('#imageText').text('Correct!')
 			.attr('display', 'inline')
-			.attr('x', (winner == 'leftImage') ? 103 : 380);
+			.attr('x', (winner == 'leftImage') ? 103 : 376);
 	}
 	//Otherwise, show who the Actual Winner is
 	else {
@@ -69,7 +69,7 @@ function checkImage() {
 
 function changeImages() {
 	//Update the global imageIndex variable
-	imageIndex = (i+1)%numberOfPairs;
+	imageIndex = (imageIndex+1)%numberOfPairs;
 	var filenameLeft = "static/compare-faces/pair" + imageIndex + "-L.jpg";
 	var filenameRight = "static/compare-faces/pair" + imageIndex + "-R.jpg";
 

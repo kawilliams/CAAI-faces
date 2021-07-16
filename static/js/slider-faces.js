@@ -50,9 +50,12 @@ d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 		document.getElementById('bottomImage').style.opacity = '0.5';
 
 		//Retrieve image prediction score
+		var oldScore = +(document.getElementById("prediction").innerHTML);
 		for (var j=0; j<data.length; j++) {
 			if (data[j].renamed_img === (nextImage)) {
-				document.getElementById("prediction").innerHTML = data[j].pred_release;
+				var newScore = (+data[j].pred_release).toFixed(4);
+				document.getElementById("prediction").innerHTML = newScore;
+				if (newScore > oldScore) console.log("going up!");
 			}
 		}
 		
