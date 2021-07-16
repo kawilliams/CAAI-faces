@@ -82,7 +82,7 @@ d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 
 
 
-}); //end csv
+}); //end d3.csv
 
 
 

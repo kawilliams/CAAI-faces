@@ -68,7 +68,6 @@ input[type="file"] {
 	background-color: #ececec;
 	text-align: center;
 	word-wrap: normal;
-	
 }
 
 #imageText {
@@ -103,7 +102,12 @@ input[type="file"] {
 	max-height:  220px;
 }
 #sliderFaces {
-	font-family: sans-serif;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #ececec;
+	text-align: center;
+	word-wrap: normal;
 }
 .sliders {
 	-webkit-appearance: none;
