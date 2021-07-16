@@ -37,26 +37,30 @@ function checkImage() {
 	var otherImageSide = (imageSide == 'rightImage') ? 'leftImage' : 'rightImage';
 	var winner = answerKey[pairNumber];
 	var loser = (winner == 'rightImage') ? 'leftImage' : 'rightImage';
-	//Outline the winner's photo in light blue
-	d3.select('.imageRect.' + winner)
-		.style('stroke', '#48A9C5')
-		.style('stroke-width', '10px');
+	
+	var winnerRect = (winner == 'rightImage') ? "#rightRectId" : "#leftRectId";
+	var loserImage = (winner == 'rightImage') ? "#leftImageId" : "#rightImageId";
+
 	//Fade the loser's photo
-	d3.select('.imageRect.' + loser)
+	d3.select(loserImage)
 		.style('stroke-width', '10px')
 		.style('fill', '#ececec') //match background light grey
 		.style('opacity', '30%');
-	//Add "Winner" text below winner
-	d3.select('text.'+ winner).attr('display', 'inline');
-	d3.select('text.'+ loser).attr('display', 'none');
+
+	//Outline the winner's photo in light blue
+	d3.select(winnerRect)
+		.style('stroke', '#48A9C5')
+		.style('stroke-width', '10px');
 	
 	if (imageSide == answerKey[pairNumber]) {
-		d3.select('text.'+ winner).text('Correct!')
-			.attr('x', (winner == 'leftImage') ? 103 : 103);
+		d3.select('#imageText').text('Correct!')
+			.attr('display', 'inline')
+			.attr('x', (winner == 'leftImage') ? 103 : 380);
 	}
 	else {
-		d3.select('text.'+ winner).text('Actual winner')
-			.attr('x', (winner == 'leftImage') ? 80 : 80);
+		d3.select('#imageText').text('Actual winner')
+			.attr('display', 'inline')
+			.attr('x', (winner == 'leftImage') ? 85 : 360);
 
 	}
 }
@@ -68,23 +72,28 @@ function changeImages() {
 
 	d3.select('#leftImageId')
 		.attr('xlink:href', filenameLeft)
-		.attr('class', 'leftImage ' + i + "-pair")
+		.attr('class', 'leftImage ' + i + "-pair imageJpg")
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
 	d3.select('#rightImageId')
 		.attr('xlink:href', filenameRight)
-		.attr('class', 'rightImage ' + i + "-pair")
+		.attr('class', 'rightImage ' + i + "-pair imageJpg")
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
+
+	//Restore outline to normal
 	d3.selectAll(".imageRect")
 		.style('stroke-width', '0px')
 		.style('fill', 'none');
+	//Restore image opacity to normal
+	d3.selectAll(".imageJpg")
+		.style('opacity', '100%');
 	d3.select('#leftRectId')
 		.attr('class', 'leftImage ' + i + "-pair imageRect");
 	d3.select('#rightRectId')
 		.attr('class', 'rightImage ' + i + "-pair imageRect");
 
-	d3.selectAll(".imageText").attr('display', 'none');
+	d3.select("#imageText").attr('display', 'none');
 }
 
 ////////// Visualization ////////
@@ -111,6 +120,7 @@ var nextButton = svg.append('rect')
 	.attr('width', nextDimensions.width)
 	.style('rx', '10px')
 	.attr('fill', '#1B365D')
+	.attr('cursor', 'pointer')
 	.on('click', changeImages);
 
 svg.append('path')
@@ -131,7 +141,7 @@ var leftImage = imagesG.append('svg:image')
 	.attr('id', 'leftImageId')
 	.attr('width', imageDimensions.width)
 	.attr('height', imageDimensions.height)
-	.attr('class', 'leftImage ' + i + "-pair")
+	.attr('class', 'leftImage ' + i + "-pair imageJpg")
 	.attr('xlink:href', filenameLeft)
 	.attr('cursor', 'pointer')
 	.on('click', checkImage);
@@ -147,7 +157,7 @@ var leftRect = imagesG.append('rect')
 	.style('fill', 'none')
 	.on('click', checkImage);
 imagesG.append('text')
-	.attr('class', 'leftImage imageText')
+	.attr('id', 'imageText')
 	.attr('x', 0.5 * imageDimensions.width - 2)
 	.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
 	.text('Actual Winner')
@@ -160,7 +170,7 @@ var rightImage = imagesG.append('svg:image')
 	.attr('id', 'rightImageId')
 	.attr('width', imageDimensions.width)
 	.attr('height', imageDimensions.height)
-	.attr('class', 'rightImage ' + i + "-pair")
+	.attr('class', 'rightImage ' + i + "-pair imageJpg")
 	.attr('xlink:href', filenameRight)
 	.attr('cursor', 'pointer')
 	.on('click', checkImage);
@@ -175,9 +185,3 @@ var rightRect = imagesG.append('rect')
 	.style('stroke-width', '0px')
 	.style('fill', 'none')
 	.on('click', checkImage);
-imagesG.append('text')
-	.attr('class', 'rightImage imageText')
-	.attr('x', imageDimensions.xright + 60)
-	.attr('y', imageDimensions.yleft + imageDimensions.height + 40)
-	.text('Winner')
-	.attr('display', 'none');
