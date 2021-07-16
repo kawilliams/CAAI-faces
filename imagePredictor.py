@@ -1,4 +1,4 @@
-#simpleClass.py
+#imagePredictor.py
 
 import sys
 import os

@@ -12,7 +12,7 @@ Installed Flask in a virtual environment (venv/).
 import os
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
-from simpleClass import ImagePredictor
+from imagePredictor import ImagePredictor
 
 UPLOAD_FOLDER = 'static/uploaded-faces'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
