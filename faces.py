@@ -12,7 +12,7 @@ Installed Flask in a virtual environment (venv/).
 import os
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
-from simpleClass import ImagePredictor
+from imagePredictor import ImagePredictor
 
 UPLOAD_FOLDER = 'static/uploaded-faces'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -45,7 +45,7 @@ def upload_file():
 		upload_file.save(os.path.join(app.config['UPLOAD_FOLDER'], safe_filename))
 
 		yourImagePredictor = ImagePredictor(safe_filename)
-		yourPrediction = yourImagePredictor.callDummyFunction()
+		yourPrediction = yourImagePredictor.getCNNPrediction()
 		yourImage = UPLOAD_FOLDER+"/"+safe_filename
 
 	return render_template('booth-faces.html', set_tab=1, error=error, yourPrediction=yourPrediction, yourImage=yourImage, imageName=safe_filename)
