@@ -93,7 +93,7 @@ input[type="file"] {
 /*Div containing the image*/
 #sliderImageDiv {
 	position: relative;
-	height: 281px;
+	height: 240px;
 	width: 220px; /*281px;*/
 	margin: 0 auto;
 }
