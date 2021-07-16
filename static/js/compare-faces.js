@@ -23,18 +23,18 @@ var nextDimensions = {
 };
 
 var numberOfPairs = 3;
-var i = 0;
+var imageIndex = 0;
 
-var bottomTextWords = [''];
 var answerKey = ['leftImage', 'rightImage', 'leftImage', 'rightImage'];
 
 function checkImage() {
 	var imageClass = d3.select(this).attr('class');
-	var imageId = d3.select(this).attr('id');
 	
+	// The side that was clicked and what pair
 	var imageSide = imageClass.split(' ')[0];
 	var pairNumber = +(imageClass.split(' ')[1][0]);
-	var otherImageSide = (imageSide == 'rightImage') ? 'leftImage' : 'rightImage';
+
+	// The actual winner and loser
 	var winner = answerKey[pairNumber];
 	var loser = (winner == 'rightImage') ? 'leftImage' : 'rightImage';
 	
@@ -52,13 +52,15 @@ function checkImage() {
 		.style('stroke', '#48A9C5')
 		.style('stroke-width', '10px');
 	
+	//If you correctly guessed the image, have Correct! beneath it
 	if (imageSide == answerKey[pairNumber]) {
 		d3.select('#imageText').text('Correct!')
 			.attr('display', 'inline')
 			.attr('x', (winner == 'leftImage') ? 103 : 380);
 	}
+	//Otherwise, show who the Actual Winner is
 	else {
-		d3.select('#imageText').text('Actual winner')
+		d3.select('#imageText').text('Actual Winner')
 			.attr('display', 'inline')
 			.attr('x', (winner == 'leftImage') ? 85 : 360);
 
@@ -66,18 +68,20 @@ function checkImage() {
 }
 
 function changeImages() {
-	i = (i+1)%numberOfPairs;
-	var filenameLeft = "static/compare-faces/pair" + i + "-L.jpg";
-	var filenameRight = "static/compare-faces/pair" + i + "-R.jpg";
+	//Update the global imageIndex variable
+	imageIndex = (i+1)%numberOfPairs;
+	var filenameLeft = "static/compare-faces/pair" + imageIndex + "-L.jpg";
+	var filenameRight = "static/compare-faces/pair" + imageIndex + "-R.jpg";
 
+	//Update the images and make sure they are interactive
 	d3.select('#leftImageId')
 		.attr('xlink:href', filenameLeft)
-		.attr('class', 'leftImage ' + i + "-pair imageJpg")
+		.attr('class', 'leftImage ' + imageIndex + "-pair imageJpg")
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
 	d3.select('#rightImageId')
 		.attr('xlink:href', filenameRight)
-		.attr('class', 'rightImage ' + i + "-pair imageJpg")
+		.attr('class', 'rightImage ' + imageIndex + "-pair imageJpg")
 		.attr('cursor', 'pointer')
 		.on('click', checkImage);
 
@@ -85,14 +89,16 @@ function changeImages() {
 	d3.selectAll(".imageRect")
 		.style('stroke-width', '0px')
 		.style('fill', 'none');
+
 	//Restore image opacity to normal
 	d3.selectAll(".imageJpg")
 		.style('opacity', '100%');
+	//Update the class to the correct image pair
 	d3.select('#leftRectId')
-		.attr('class', 'leftImage ' + i + "-pair imageRect");
+		.attr('class', 'leftImage ' + imageIndex + "-pair imageRect");
 	d3.select('#rightRectId')
-		.attr('class', 'rightImage ' + i + "-pair imageRect");
-
+		.attr('class', 'rightImage ' + imageIndex + "-pair imageRect");
+	//Hide any "Correct!" or "Actual winner" text
 	d3.select("#imageText").attr('display', 'none');
 }
 
@@ -131,8 +137,8 @@ svg.append('path')
 	.attr('cursor', 'pointer')
 	.on('click', changeImages);
 	
-var filenameLeft = "static/compare-faces/pair" + i + "-L.jpg";
-var filenameRight = "static/compare-faces/pair" + i + "-R.jpg";
+var filenameLeft = "static/compare-faces/pair" + imageIndex + "-L.jpg";
+var filenameRight = "static/compare-faces/pair" + imageIndex + "-R.jpg";
 
 
 var leftImage = imagesG.append('svg:image')
@@ -141,7 +147,7 @@ var leftImage = imagesG.append('svg:image')
 	.attr('id', 'leftImageId')
 	.attr('width', imageDimensions.width)
 	.attr('height', imageDimensions.height)
-	.attr('class', 'leftImage ' + i + "-pair imageJpg")
+	.attr('class', 'leftImage ' + imageIndex + "-pair imageJpg")
 	.attr('xlink:href', filenameLeft)
 	.attr('cursor', 'pointer')
 	.on('click', checkImage);
@@ -152,7 +158,7 @@ var leftRect = imagesG.append('rect')
 	.attr('id', 'leftRectId')
 	.attr('width', imageDimensions.width + 10)
 	.attr('height', imageDimensions.height + 10)
-	.attr('class', 'leftImage ' + i + "-pair imageRect")
+	.attr('class', 'leftImage ' + imageIndex + "-pair imageRect")
 	.style('stroke-width', '0px')
 	.style('fill', 'none')
 	.on('click', checkImage);
@@ -170,7 +176,7 @@ var rightImage = imagesG.append('svg:image')
 	.attr('id', 'rightImageId')
 	.attr('width', imageDimensions.width)
 	.attr('height', imageDimensions.height)
-	.attr('class', 'rightImage ' + i + "-pair imageJpg")
+	.attr('class', 'rightImage ' + imageIndex + "-pair imageJpg")
 	.attr('xlink:href', filenameRight)
 	.attr('cursor', 'pointer')
 	.on('click', checkImage);
@@ -181,7 +187,7 @@ var rightRect = imagesG.append('rect')
 	.attr('id', 'rightRectId')
 	.attr('width', imageDimensions.width + 10)
 	.attr('height', imageDimensions.height + 10)
-	.attr('class', 'rightImage ' + i + "-pair imageRect")
+	.attr('class', 'rightImage ' + imageIndex + "-pair imageRect")
 	.style('stroke-width', '0px')
 	.style('fill', 'none')
 	.on('click', checkImage);
