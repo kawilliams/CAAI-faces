@@ -31,6 +31,10 @@ const valueCode = {
 	'0.75' : 'h',
 	'1' : 'i'
 }
+var upArrow = "M15.997 13.374l-7.081 7.081L7 18.54l8.997-8.998 9.003 9-1.916 1.916z";
+
+var downArrow = "M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z";
+
 
 d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 
