@@ -14,7 +14,7 @@ class ImagePredictor:
 	def __init__(self, filename):
 		self.filename = UPLOAD_FOLDER + filename
 		print(self.filename)
-
+    
 	def getCNNPrediction(self):
 		img=Image.open(self.filename).resize((224, 224))
 		img_array = image.img_to_array(img)
