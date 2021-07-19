@@ -3,6 +3,10 @@ from tensorflow.keras.applications.resnet50 import preprocess_input, decode_pred
 from tensorflow.keras.preprocessing import image
 from PIL import Image
 import numpy as np
+import ssl
+
+#To ensure server security
+ssl._create_default_https_context = ssl._create_unverified_context
 
 UPLOAD_FOLDER = 'static/uploaded-faces/'
 
