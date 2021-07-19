@@ -6,12 +6,16 @@ Since we need to interact with a Python wrapper for the CNN, the webpage is now 
 ```
 . venv/bin/activate
 ```
-First we need to tell Flask the name of our app and that we are running in development mode:
+Next we need to install the Python modules needed to run the CNN into our virtual environment:
+```
+pip install -r requirements.txt
+```
+Now we need to tell Flask the name of our app and that we are running in development mode:
 ```
 export FLASK_APP=faces
 export FLASK_ENV=development
 ```
-Now we can run the Flask app:
+Then we can run the Flask app:
 ```
 flask run
 ```
