@@ -16,7 +16,7 @@ label {
 	color:  #39393a;
 }
 
-div#uploadFace {
+#uploadFace {
 	margin: 10px;
 	padding: 10px;
 	border-radius: 10px;
@@ -68,7 +68,6 @@ input[type="file"] {
 	background-color: #ececec;
 	text-align: center;
 	word-wrap: normal;
-	
 }
 
 #imageText {
@@ -80,30 +79,38 @@ input[type="file"] {
 	font-size: 1.5em;
 }
 
-
-#slidersDiv {
-	width: 300px;
-	position: relative;
+/*Background of slider vis*/
+#sliderFaces {
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #ececec;
+	text-align: center;
+	word-wrap: normal;
 }
 
+
+/*Div containing the image*/
 #sliderImageDiv {
 	position: relative;
-	height: 281px;
+	height: 240px;
 	width: 220px; /*281px;*/
 	margin: 0 auto;
 }
-
 #sliderImageDiv img {
 	position: absolute;
 	left: 0;
 }
-
 .sliderImage {
 	max-width: 220px;
 	max-height:  220px;
 }
-#sliderFaces {
-	font-family: sans-serif;
+
+/*Div containing the sliders*/
+#slidersDiv {
+	width: 300px;
+	position: relative;
+	margin: 0 auto;
 }
 .sliders {
 	-webkit-appearance: none;
