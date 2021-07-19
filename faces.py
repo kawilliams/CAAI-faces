@@ -45,7 +45,7 @@ def upload_file():
 		upload_file.save(os.path.join(app.config['UPLOAD_FOLDER'], safe_filename))
 
 		yourImagePredictor = ImagePredictor(safe_filename)
-		yourPrediction = yourImagePredictor.callDummyFunction()
+		yourPrediction = yourImagePredictor.getCNNPrediction()
 		yourImage = UPLOAD_FOLDER+"/"+safe_filename
 
 	return render_template('booth-faces.html', set_tab=1, error=error, yourPrediction=yourPrediction, yourImage=yourImage, imageName=safe_filename)
