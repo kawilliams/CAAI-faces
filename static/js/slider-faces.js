@@ -31,10 +31,8 @@ const valueCode = {
 	'0.75' : 'h',
 	'1' : 'i'
 }
-var upArrow = "M15.997 13.374l-7.081 7.081L7 18.54l8.997-8.998 9.003 9-1.916 1.916z";
-
-var downArrow = "M16.003 18.626l7.081-7.081L25 13.46l-8.997 8.998-9.003-9 1.917-1.916z";
-
+var upArrow = "m10 10.728-8.327 8.327-2.253-2.252 10.58-10.582 10.588 10.584-2.253 2.253z";
+var downArrow = "m10 15.728 l -8.327 -8.327-2.253 2.252 10.58 10.582 10.588 -10.584-2.253 -2.253z";
 
 d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 
@@ -51,15 +49,25 @@ d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 		var oldImage = document.getElementById('topImage').src;
 		document.getElementById('topImage').src = fullImagePath;
 		document.getElementById('bottomImage').src = oldImage;
-		document.getElementById('bottomImage').style.opacity = '0.5';
+		document.getElementById('bottomImage').style.opacity = '1.0';
 
 		//Retrieve image prediction score
-		var oldScore = +(document.getElementById("prediction").innerHTML);
+		var oldScore = +(document.getElementById("prediction").innerHTML.split(': ')[1]);
 		for (var j=0; j<data.length; j++) {
 			if (data[j].renamed_img === (nextImage)) {
 				var newScore = (+data[j].pred_release).toFixed(4);
-				document.getElementById("prediction").innerHTML = newScore;
-				if (newScore > oldScore) console.log("going up!");
+				document.getElementById("prediction").innerHTML = "Value: " + newScore + " ";
+				if (newScore > oldScore) {
+					d3.select("#downArrow").attr('display', 'none');
+					d3.select("#upArrow").attr('display', 'inline');
+					d3.select("#upArrow").style('fill', "green");
+
+
+				} else {
+					d3.select("#downArrow").attr('display', 'inline');
+					d3.select("#upArrow").attr('display', 'none');
+					d3.select("#downArrow").style('fill', "red");
+				}
 			}
 		}
 		
@@ -87,6 +95,24 @@ d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 		transition(thisSlider);
 	}
 
+	var svg = d3.select("#sliderArrowSVG").attr('height', 26)
+		.attr('width', 20)
+		// .attr('style', 'outline: thin solid red;') //development: used to see SVG size
+		.append('g')
+		.attr('id', 'sliderArrowG');
+
+	svg.append('path')
+		.attr('d',downArrow)
+		.attr('id', 'downArrow')
+		.attr('class', 'bounce')
+		.style('fill', 'red')
+		.attr('display', 'none');
+	svg.append('path')
+		.attr('d',upArrow)
+		.attr('id', 'upArrow')
+		.attr('class', 'bounce')
+		.style('fill', 'green')
+		.attr('display', 'none');
 
 
 }); //end d3.csv

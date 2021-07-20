@@ -135,3 +135,34 @@ input[type="file"] {
     border-radius: 50%;
 
 }
+
+#sliderArrowSVG {
+	display: inline;
+}
+#prediction {
+	display: inline;
+	text-align: center;
+	color: #1B365D;
+	font-family: 'TradeGothic BoldCn 20';
+	font-weight: inherit;
+	letter-spacing: 0rem;
+	font-size: 1.5em;
+}
+.bounce {
+  animation: bounce 2.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0%,
+  50%,
+  100%{
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  75% {
+    transform: translateY(-6px);
+  }
+}
