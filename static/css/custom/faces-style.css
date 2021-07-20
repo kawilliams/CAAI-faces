@@ -60,6 +60,9 @@ input[type="file"] {
     color:  white;
 }
 
+#imageContainer > img {
+	max-width: 80%;
+}
 
 #compareFaces {
 	margin: 10px;
