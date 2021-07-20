@@ -1,6 +1,9 @@
 # CAAI-faces
 Visualizations for the Faces Project from the CAAI
 
+## Requirements
+Python 3
+
 ## To display the visualizations
 Since we need to interact with a Python wrapper for the CNN, the webpage is now a [Flask](https://flask.palletsprojects.com/en/2.0.x/) app. To see the webpage, first clone the repository, then `cd CAAI-faces` and activate the virtual environment:
 ```
