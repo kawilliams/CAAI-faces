@@ -22,10 +22,10 @@ var nextDimensions = {
 	height: 50
 };
 
-var numberOfPairs = 3;
-var imageIndex = 0;
+var numberOfPairs = 16;
+var imageIndex = 1;
 
-var answerKey = ['leftImage', 'rightImage', 'leftImage', 'rightImage'];
+var answerKey = ['L','L','R','R','L','R','L','L','L','L','L','R','L','L','R','L'];
 
 function checkImage() {
 	var imageClass = d3.select(this).attr('class');
@@ -35,11 +35,11 @@ function checkImage() {
 	var pairNumber = +(imageClass.split(' ')[1][0]);
 
 	// The actual winner and loser
-	var winner = answerKey[pairNumber];
-	var loser = (winner == 'rightImage') ? 'leftImage' : 'rightImage';
+	var winner = 'L'; //answerKey[pairNumber]; //katy
+	var loser = (winner == 'R') ? 'L' : 'R';
 	
-	var winnerRect = (winner == 'rightImage') ? "#rightRectId" : "#leftRectId";
-	var loserImage = (winner == 'rightImage') ? "#leftImageId" : "#rightImageId";
+	var winnerRect = (winner == 'R') ? "#rightRectId" : "#leftRectId";
+	var loserImage = (winner == 'R') ? "#leftImageId" : "#rightImageId";
 
 	//Fade the loser's photo
 	d3.select(loserImage)
@@ -56,19 +56,20 @@ function checkImage() {
 	if (imageSide == answerKey[pairNumber]) {
 		d3.select('#imageText').text('Correct!')
 			.attr('display', 'inline')
-			.attr('x', (winner == 'leftImage') ? 103 : 376);
+			.attr('x', (winner == 'L') ? 103 : 376);
 	}
 	//Otherwise, show who the Actual Winner is
 	else {
 		d3.select('#imageText').text('Actual Winner')
 			.attr('display', 'inline')
-			.attr('x', (winner == 'leftImage') ? 85 : 360);
+			.attr('x', (winner == 'L') ? 85 : 360);
 
 	}
 }
 
 function changeImages() {
 	//Update the global imageIndex variable
+
 	imageIndex = (imageIndex+1)%numberOfPairs;
 	var filenameLeft = "static/compare-faces/pair" + imageIndex + "-L.jpg";
 	var filenameRight = "static/compare-faces/pair" + imageIndex + "-R.jpg";
