@@ -22,10 +22,10 @@ var nextDimensions = {
 	height: 50
 };
 
-var numberOfPairs = 15;
+var numberOfPairs = 16;
 var imageIndex = 1;
 
-var answerKey = ['L', 'R', 'L', 'R'];
+var answerKey = ['L','L','R','R','L','R','L','L','L','L','L','R','L','L','R','L'];
 
 function checkImage() {
 	var imageClass = d3.select(this).attr('class');
