@@ -35,7 +35,7 @@ function checkImage() {
 	var pairNumber = +(imageClass.split(' ')[1][0]);
 
 	// The actual winner and loser
-	var winner = 'L'; //answerKey[pairNumber]; //katy
+	var winner = answerKey[pairNumber];
 	var loser = (winner == 'R') ? 'L' : 'R';
 	
 	var winnerRect = (winner == 'R') ? "#rightRectId" : "#leftRectId";
