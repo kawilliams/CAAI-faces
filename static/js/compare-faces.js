@@ -109,9 +109,7 @@ function changeImages() {
 		.attr('class', 'rightImage ' + imageIndex + "-pair imageRect");
 	//Hide any "Correct!" or "Actual winner" text
 	d3.select("#imageText").attr('display', 'none');
-	console.log(imageIndex, numberOfPairs);
 	if (imageIndex == (numberOfPairs-1)) {
-		console.log("SHOW ENDSCREEN");
 		showEndScreen();
 	}
 	if (imageIndex == 1) {
