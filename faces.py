@@ -12,6 +12,8 @@ Installed Flask in a virtual environment (venv/).
 import os
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
+from werkzeug.wrappers.request import Request
+from werkzeug.exceptions import HTTPException, NotFound
 from imagePredictor import ImagePredictor
 
 UPLOAD_FOLDER = 'static/uploaded-faces'
@@ -20,6 +22,8 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['MAX_CONTENT_LENGTH'] = 5*1024 #*1024
+
+
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS

@@ -15,7 +15,7 @@ function submitImage() {
 	document.getElementById("faceUploadForm").submit();
 	var imageText = document.getElementById("imageLoading");
 	const loadMessages = ["Submitted image...", "Checking if CNN can process image...", "Processing image..."];
-
+	
 	function sleep(ms) {
   		return new Promise(resolve => setTimeout(resolve, ms));
 	}
