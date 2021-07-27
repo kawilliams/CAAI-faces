@@ -19,7 +19,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 5*1024*1024
+#app.config['MAX_CONTENT_LENGTH'] = 5*1024 #*1024
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
@@ -39,6 +39,19 @@ def upload_file():
 	if upload_file.filename == '':
 		error = "No file selected"
 		return render_template('booth-faces.html', error=error)
+	
+
+	# if katy:
+	# 	error = "File is too large"
+	# 	return render_template('booth-faces.html', error=error)
+
+	#DELETE THIS "IF": This condition exists as a placeholder
+	#for when the CNN cannot adequately process an image.
+	#Replace with a "if the image is not a face" condition.
+	if len(upload_file.filename) > 10:
+		error = "Caution: the score for this image might be meaningless because it does not look similar to our training data."
+	#end dummy condition
+
 	if upload_file and allowed_file(upload_file.filename):
 
 		safe_filename = secure_filename(upload_file.filename)

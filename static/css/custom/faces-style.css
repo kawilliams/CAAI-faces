@@ -25,6 +25,12 @@ label {
 	word-wrap: normal;
 }
 
+#error {
+	color: red;
+	font-weight: bold;
+	font-family: 'TradeGothic Cn 18';
+}
+
 span {
 	font-family: sans-serif;
 }
