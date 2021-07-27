@@ -44,6 +44,15 @@ span {
 	letter-spacing: 0rem;
 }
 
+.visText {
+	text-align: center;
+	color: #1B365D;
+	font-family: 'Trade Gothic LT W01 Light';
+	font-weight: inherit;
+	font-size: calc(16px + .3vw);
+	line-height: 1.75;
+
+}
 
 /* Mobile version */
 @media only screen and (max-width: 424px) {
@@ -77,6 +86,12 @@ input[type="file"] {
 	background-color: #ececec;
 	text-align: center;
 	word-wrap: normal;
+}
+
+#currentScore {
+	color: #1B365D;
+	font-weight: bold;
+	font-family: 'TradeGothic BoldCn 20';
 }
 
 #imageText {
