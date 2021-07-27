@@ -363,49 +363,6 @@
             <section section class="component" data-modulename="HTMLContainer">
                <div class="section-container">
                 <div class="html-container">
-            <!-- Custom style sheet for the faces interactive elements -->
-<link rel="stylesheet" href="{{ url_for('static',filename='css/custom/faces-style.css') }}">
-            <!-- Import the d3 library -->
-            <script src="https://d3js.org/d3.v6.min.js"></script>
-            <!-- ### Begin Face Upload Vis -->
-            {% if set_tab %}
-               <script>
-                  document.addEventListener("DOMContentLoaded", function() {
-                     document.location.hash = '#myface';
-                  });
-               </script>
-            {% endif %}
-
-               <section id="myface">
-               <div id="uploadFace" class="svg-container">
-                  <span class="visTitle">Upload Vis</span>
-                  <p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
-                  <form method="POST" enctype="multipart/form-data" id="faceUploadForm" name='faceUploadForm'>
-                     <label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
-                     
-                     <input type="file" id="myfile" name="fileToUpload">
-                     <span id="showFileSelected">{{ imageName }}</span>
-                     <p id="yourPrediction">{{ yourPrediction }}</p>
-               
-                     {% if error %}
-                        <p id="error">{{ error }}</p>
-                     {% endif %}
-                  <!-- <br/>
-                  <br/>
-                  <br/> -->
-                  </form>
-                  <div id='imageContainer'>
-                     {% if yourImage %}
-                     <img src="{{ yourImage }}" />
-                     {% endif %}
-                  </div>
-                  
-               </div>
-            </section>
-            <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script>
-            <!-- ### End Face Upload Vis --->
-
-           
                </div>
                </div>
             </section>
@@ -424,7 +381,7 @@
                   <span class="visual-element"></span>
                   <div class="body-copy">
                      <p>
-                        Pulvinar etiam non quam lacus suspendisse. Semper quis lectus nulla at volutpat diam ut. Quam quisque id diam vel quam elementum pulvinar. Semper feugiat nibh sed pulvinar. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor. Metus dictum at tempor commodo ullamcorper a lacus vestibulum sed. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Magna fermentum iaculis eu non diam phasellus vestibulum. Bibendum neque egestas congue quisque.
+                        Pulvinar etiam non quam lacus suspendisse. Semper quis lectus nulla at volutpat diam ut. Quam quisque id diam vel quam elementum pulvinar. Semper feugiat nibh sed pulvinar. 
                       </p>
                       <br />
                      <div class="copy-container">
@@ -439,6 +396,57 @@
             </section> 
              
              <!-- Single Column container for data visualizations ---->
+             <section class="component" data-modulename="HTMLContainer">
+                <div class="section-container">
+                   <div class="single-col html-container">
+                      <!-- Custom style sheet for the faces interactive elements -->
+                     <link rel="stylesheet" href="{{ url_for('static',filename='css/custom/faces-style.css') }}">
+                     <!-- Import the d3 library -->
+                     <script src="https://d3js.org/d3.v6.min.js"></script>
+                     <!-- ### Begin Face Upload Vis -->
+                     {% if set_tab %}
+                        <script>
+                           document.addEventListener("DOMContentLoaded", function() {
+                              document.location.hash = '#myface';
+                           });
+                        </script>
+                     {% endif %}
+
+                        <section id="myface">
+                        <div id="uploadFace" class="svg-container">
+                           <span class="visTitle">Upload Vis</span>
+                           <p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
+                           <form method="POST" enctype="multipart/form-data" id="faceUploadForm" name='faceUploadForm'>
+                              <label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
+                              
+                              <input type="file" id="myfile" name="fileToUpload">
+                              <span id="showFileSelected">{{ imageName }}</span>
+                              <p id="yourPrediction">{{ yourPrediction }}</p>
+                        
+                              {% if error %}
+                                 <p id="error">{{ error }}</p>
+                              {% endif %}
+                           <!-- <br/>
+                           <br/>
+                           <br/> -->
+                           </form>
+                           <div id='imageContainer'>
+                              <p id="imageLoading"></p>
+                              {% if yourImage %}
+                              <img src="{{ yourImage }}" />
+                              {% endif %}
+                           </div>
+                           
+                        </div>
+                     </section>
+                     <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script>
+                     <!-- ### End Face Upload Vis --->
+
+                     <p>At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor. Metus dictum at tempor commodo ullamcorper a lacus vestibulum sed. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Magna fermentum iaculis eu non diam phasellus vestibulum. Bibendum neque egestas congue quisque.
+                     </p>
+                   </div>
+                </div>
+             </section>
             <section class="component" data-modulename="HTMLContainer">
                <div class="section-container">
                   <div class="single-col html-container">
@@ -467,6 +475,7 @@
             <!-- Your Code --->
             <div id="sliderFaces" class="svg-container">
                <span class="visTitle">Slider Vis</span>
+               <p>The algorithm randomly adjusts pixels in the seed image as it generates images, and these changes affect the predicted score for the image. Move the sliders to explore the "face space" and observe how the facial changes affect the scores.</p>
                <div id="sliderImageDiv">
                   <img src="{{ url_for('static',filename='slider-faces/renamed_images/seed_200_var_bddd.png') }}" id="topImage" class="sliderImage"></img>
                   <img src="{{ url_for('static',filename='slider-faces/renamed_images/seed_200_var_aadd.png') }}" id="bottomImage" class="sliderImage"></img>
