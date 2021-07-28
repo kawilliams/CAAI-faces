@@ -25,6 +25,7 @@ var nextDimensions = {
 var numberOfPairs = 16;
 var imageIndex = 1;
 var score = 0;
+var compScoreAll = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 var answerKey = ['L','L','R','R','L','R','L','L','L','L','L','R','L','L','R','L'];
 
@@ -68,9 +69,12 @@ function checkImage() {
 			.attr('x', (winner == 'L') ? 85 : 360);
 
 	}
+	compScore = compScoreAll[imageIndex];
 
 	d3.select("#currentScore")
 		.text("Your score: " + score + "/" + imageIndex);
+	d3.select("#computerScore")
+		.text("Computer score: " + compScore + "/" + imageIndex);
 	
 }
 
@@ -236,3 +240,17 @@ var rightRect = imagesG.append('rect')
 	.style('stroke-width', '0px')
 	.style('fill', 'none')
 	.on('click', checkImage);
+
+var yourScore = imagesG.append('text')
+	.attr('id', "currentScore")
+	.attr('class', 'visText')
+	.attr('x', imageDimensions.xleft + 40)
+	.attr('y', imageDimensions.yleft + imageDimensions.height + 20)
+	.text('Your score: 0/0');
+
+var computerScore = imagesG.append('text')
+	.attr('id', "computerScore")
+	.attr('class', 'visText')
+	.attr('x', imageDimensions.xright + 20)
+	.attr('y', imageDimensions.yright + imageDimensions.height + 20)
+	.text('Computer score: 0/0');
