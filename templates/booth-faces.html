@@ -477,12 +477,13 @@
                <span class="visTitle">Slider Vis</span>
                <p>The algorithm randomly adjusts pixels in the seed image as it generates images, and these changes affect the predicted score for the image. Move the sliders to explore the "face space" and observe how the facial changes affect the scores.</p>
                <div id="sliderImageDiv">
-                  <img src="{{ url_for('static',filename='slider-faces/renamed_images/seed_200_var_bddd.png') }}" id="topImage" class="sliderImage"></img>
-                  <img src="{{ url_for('static',filename='slider-faces/renamed_images/seed_200_var_aadd.png') }}" id="bottomImage" class="sliderImage"></img>
+                  <img src="{{ url_for('static',filename='slider-faces/renamed_images_200/seed_200_var_aadd.png') }}" id="topImage" class="sliderImage"></img>
                </div>
                <span><div id="prediction">Value: 0.0000</div><svg id="sliderArrowSVG"></svg></span>
             <br />
             <div id="slidersDiv">
+               <label id="button124" class="custom-file-upload">Button 124</label> <label id="button200" class="custom-file-upload">Button 200</label>
+               <br />
                <label for="slider_1">A</label><input type="range" min="-1" max="1" step="0.25" value="-1" id="slider_1" class="sliders" >
                <br/>
                <label for="slider_2">B</label><input type="range" min="-1" max="1" step="0.25" value="-1" id="slider_2" class="sliders">

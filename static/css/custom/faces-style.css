@@ -129,6 +129,10 @@ input[type="file"] {
 	max-height:  220px;
 }
 
+.personButton div {
+	fill:  magenta;
+}
+
 /*Div containing the sliders*/
 #slidersDiv {
 	width: 300px;
