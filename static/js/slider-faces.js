@@ -17,8 +17,10 @@ var predVal = {
 	y: 100
 }
 
-var directory = 'static/slider-faces/renamed_images/';
-var topImage = 'static/slider-faces/renamed_images/seed_200_var_bddd.png';
+var directory124 = "static/slider-faces/renamed_images_124/";
+var directory200 = "static/slider-faces/renamed_images_200/";
+var topImage = "static/slider-faces/renamed_images_200/seed_200_var_aadd.png";
+var seedCode = "200";
 
 const valueCode = {
 	'-1' : 'a',
@@ -35,6 +37,16 @@ var upArrow = "m10 10.728-8.327 8.327-2.253-2.252 10.58-10.582 10.588 10.584-2.2
 var downArrow = "m10 15.728 l -8.327 -8.327-2.253 2.252 10.58 10.582 10.588 -10.584-2.253 -2.253z";
 
 d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
+	function changeSeed() {
+
+		if (this.id == "button200") {
+			seedCode = "200";
+		}
+		else if (this.id == "button124") {
+			seedCode = "124";
+		}
+		transition();
+	}
 
 	function transition(thisSlider) {
 	
@@ -44,12 +56,10 @@ d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 		var val4 = document.getElementById("slider_4").value;
 
 		var imageCode = valueCode[val1]+valueCode[val2]+valueCode[val3]+valueCode[val4];
-		var nextImage = 'seed_200_var_' + imageCode + '.png';
+		var nextImage = 'seed_'+ seedCode +'_var_' + imageCode + '.png';
+		directory = (seedCode == "200") ? directory200 : directory124;
 		var fullImagePath = directory + nextImage;
-		var oldImage = document.getElementById('topImage').src;
 		document.getElementById('topImage').src = fullImagePath;
-		document.getElementById('bottomImage').src = oldImage;
-		document.getElementById('bottomImage').style.opacity = '1.0';
 
 		//Retrieve image prediction score
 		var oldScore = +(document.getElementById("prediction").innerHTML.split(': ')[1]);
@@ -113,6 +123,12 @@ d3.csv("static/slider-faces/metadata/meta_renamed.csv").then(function(data){
 		.attr('class', 'bounce')
 		.style('fill', 'green')
 		.attr('display', 'none');
+
+
+	var button124 = d3.select("#button124")
+		.on('click', changeSeed);
+	var button200 = d3.select("#button200")
+		.on('click', changeSeed);
 
 
 }); //end d3.csv

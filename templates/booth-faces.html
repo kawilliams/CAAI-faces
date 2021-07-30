@@ -7,473 +7,80 @@
       <meta charset="utf-8" />
       <meta name="robots" content="noindex, nofollow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/reset.css') }}" />
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/fonts.css') }}" />
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bundled.css') }}" />
-      <!-- ALTERNATE CSS TO ADD TO MAIN CSS  -->
-      <script src="https://code.jquery.com/jquery-2.2.4.js"></script> 
-      <style>
-         .sec-logo-img{
-         display: none;
-         }
-      </style>
    </head>
    <body class="">
-      <!-- <form method="post" action="" id="form1"> --> <!-- action="./Body-Copy.aspx"-->
-         <div class="aspNetHidden">
-            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="VsGkjFvPC9d4+3KQoaUvDn1YRSv0WHhl6kX1jTnBz3UBSgwjLqNnlI6M/PLlHa3lcC/RQ65Oe3R+EBIal1G6UmiEMkJoKOocqzoeKql2pU0=" />
-         </div>
-         <div class="aspNetHidden">
-            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2CF513E6" />
-         </div>
-         <div id="privacy-policy">
-            <div class="alert-box " >
-               <div class="p-alert">
-                  <a href="/about/coronavirus-updates" title="Coronavirus Updates">Updates on coronavirus for the Booth community</a>
-                  <span class="alert-closebtn"  onclick="alertSlideToggle(this)" onkeypress="slideToggle()" tabindex="0"></span>
-               </div>
-            </div>
-            <div id="PrivacyDIV" class="section-container">
-               <div class="p-alert ">
-                  We want to demonstrate our commitment to your privacy. In support of the changes to the EU data protection law, we’ve updated our <a href="/privacy-notice/" title="Privacy Notice">privacy notice</a> effective May 25, 2018.
-               </div>
-               <span class="closebtn"  onclick="gdprSlideToggle()" onkeypress="slideToggle()" tabindex="0"></span>
-            </div>
-            <div class="ribbon"></div>
-         </div>
-         <a href="#skipnav" class="sr-only">Skip Navigation</a>
-         <nav id="nav-mobile" class="mobile check-active-state disappear">
-            <div class="nav-container">
-               <div class="logo-container">
-                  <a class="logo" href="https://wwww.chicagobooth.edu" >
-                  The University of Chicago Booth School of Business
-                  </a>
-               </div>
-               <div class="search-box">
-                  <div class="search-overlay-container">
-                     <label class="visual-hide">Search</label>
-                     <div id="_main-global-search-box-mobile_container" data-prebind-maximum-age="currentMaximumAge" data-applied-prebind="true" data-maximum-age="0" class="CoveoSearchInterface Coveostate CoveoComponentState CoveoComponentOptions CoveoQueryController CoveoDebug coveo-after-initialization" style="display: block;" data-coveo-for-sitecore-event-registered="true">
-                        <div id="_main-global-search-box-mobile" class="CoveoSearchbox" data-enable-omnibox="true" data-prebind-maximum-age="currentMaximumAge" data-applied-prebind="true" data-maximum-age="0">
-                           <script type="text/javascript">
-                              document.addEventListener("DOMContentLoaded", function() {
-                                  var componentId = "_main-global-search-box-mobile";
-                                  var componentElement = document.getElementById(componentId);
-                              
-                                  function showError(error) {
-                                          console.error(error);
-                                  }
-                              
-                                  function areCoveoResourcesIncluded() {
-                                      return typeof (Coveo) !== "undefined";
-                                  }
-                              
-                                  if (areCoveoResourcesIncluded()) {
-                                      var event = document.createEvent("CustomEvent");
-                                      event.initEvent("CoveoComponentInitialized", false, true);
-                                      
-                                      setTimeout(function() {
-                                          componentElement.dispatchEvent(event);
-                                      }, 0);
-                                  } else {
-                                      componentElement.classList.add("invalid");
-                                      showError("The Coveo Resources component must be included in this page.");
-                                  }
-                              });
-                           </script>
-                           <div class="CoveoForSitecoreExpressions"></div>
-                           <div class="CoveoForSitecoreConfigureSearchHub" data-sc-search-hub="Search"></div>
-                           <div class="CoveoOmnibox coveo-query-syntax-disabled magic-box" role="combobox" aria-expanded="false" aria-haspopup="listbox">
-                              <div class="magic-box-input">
-                                 <div class="magic-box-underlay">
-                                    <span class="magic-box-highlight-container">
-                                    <span data-id="start" data-success="true">
-                                    <span data-id="Any" data-success="true" data-value=""></span>
-                                    </span>
-                                    </span>
-                                    <span class="magic-box-ghost-text"></span>
-                                 </div>
-                                 <input spellcheck="false" form="coveo-dummy-form" role="combobox" autocomplete="off" aria-autocomplete="list" title="Insert a query. Press enter to send" aria-label="Search"/>
-                                 <div class="magic-box-clear coveo-accessible-button" role="button" aria-label="Clear" tabindex="-1">
-                                    <div class="magic-box-icon">
-                                       <svg enable-background="new 0 0 13 13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg" class="magic-box-clear-svg">
-                                          <g fill="currentColor">
-                                             <path d="m7.881 6.501 4.834-4.834c.38-.38.38-1.001 0-1.381s-1.001-.38-1.381 0l-4.834 4.834-4.834-4.835c-.38-.38-1.001-.38-1.381 0s-.38 1.001 0 1.381l4.834 4.834-4.834 4.834c-.38.38-.38 1.001 0 1.381s1.001.38 1.381 0l4.834-4.834 4.834 4.834c.38.38 1.001.38 1.381 0s .38-1.001 0-1.381z"></path>
-                                          </g>
-                                       </svg>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="magic-box-suggestions"></div>
-                           </div>
-                           <a class="CoveoSearchButton coveo-accessible-button" role="button" aria-label="Search" tabindex="0">
-                              <span class="coveo-search-button">
-                                 <svg enable-background="new 0 0 20 20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="coveo-search-button-svg">
-                                    <g fill="currentColor">
-                                       <path class="coveo-magnifier-circle-svg" d="m8.368 16.736c-4.614 0-8.368-3.754-8.368-8.368s3.754-8.368 8.368-8.368 8.368 3.754 8.368 8.368-3.754 8.368-8.368 8.368m0-14.161c-3.195 0-5.793 2.599-5.793 5.793s2.599 5.793 5.793 5.793 5.793-2.599 5.793-5.793-2.599-5.793-5.793-5.793"></path>
-                                       <path d="m18.713 20c-.329 0-.659-.126-.91-.377l-4.552-4.551c-.503-.503-.503-1.318 0-1.82.503-.503 1.318-.503 1.82 0l4.552 4.551c.503.503.503 1.318 0 1.82-.252.251-.581.377-.91.377"></path>
-                                    </g>
-                                 </svg>
-                              </span>
-                              <span class="coveo-search-button-loading">
-                                 <svg enable-background="new 0 0 18 18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="coveo-search-button-loading-svg">
-                                    <g fill="currentColor">
-                                       <path d="m16.76 8.051c-.448 0-.855-.303-.969-.757-.78-3.117-3.573-5.294-6.791-5.294s-6.01 2.177-6.79 5.294c-.134.537-.679.861-1.213.727-.536-.134-.861-.677-.728-1.212 1.004-4.009 4.594-6.809 8.731-6.809 4.138 0 7.728 2.8 8.73 6.809.135.536-.191 1.079-.727 1.213-.081.02-.162.029-.243.029z"></path>
-                                       <path d="m9 18c-4.238 0-7.943-3.007-8.809-7.149-.113-.541.234-1.071.774-1.184.541-.112 1.071.232 1.184.773.674 3.222 3.555 5.56 6.851 5.56s6.178-2.338 6.852-5.56c.113-.539.634-.892 1.184-.773.54.112.887.643.773 1.184-.866 4.142-4.57 7.149-8.809 7.149z"></path>
-                                    </g>
-                                 </svg>
-                              </span>
-                           </a>
-                        </div>
-                        <div class="CoveoForSitecoreContext" data-sc-should-have-analytics-component="true" data-sc-analytics-enabled="true" data-sc-current-language="en" data-prebind-sc-language-field-name="fieldTranslator" data-sc-language-field-name="z95xlanguage" data-sc-labels="{&quot;If the problem persists contact the administrator.&quot; : &quot;If the problem persists contact the administrator.&quot; , &quot;Search is currently unavailable&quot; : &quot;Oops! Something went wrong on the server.&quot; , &quot;Created by&quot; : &quot;Created by&quot; , &quot;Creation time.&quot; : &quot;Creation time.&quot; , &quot;Language&quot; : &quot;Language&quot; , &quot;Last time modified.&quot; : &quot;Last time modified.&quot; , &quot;Template&quot; : &quot;Template&quot; , &quot;Uniform resource identifier&quot; : &quot;URI&quot; , &quot;Updated by&quot; : &quot;Updated by&quot; , &quot;Created&quot; : &quot;Created&quot;}" data-sc-maximum-age="0" data-sc-page-name="Home" data-sc-page-name-full-path="/sitecore/content/Chicago Booth/Home" data-sc-index-source-name="Coveo_web_index - Test" data-sc-is-in-experience-editor="false" data-sc-is-user-anonymous="true" data-sc-item-uri="sitecore://web/{28C1C116-E730-4A86-8A56-EAB02650A5F6}?lang=en&amp;ver=23" data-sc-item-id="28c1c116-e730-4a86-8a56-eab02650a5f6" data-prebind-sc-latest-version-field-name="fieldTranslator" data-sc-latest-version-field-name="z95xlatestversion" data-sc-rest-endpoint-uri="/coveo/rest" data-sc-site-name="chicagobooth" data-sc-field-prefix="f" data-sc-field-suffix="54228" data-sc-prefer-source-specific-fields="false" data-sc-external-fields="[{&quot;fieldName&quot;:&quot;permanentid&quot;,&quot;shouldEscape&quot;:false}]" data-sc-source-specific-fields="[{&quot;fieldName&quot;:&quot;attachmentparentid&quot;},{&quot;fieldName&quot;:&quot;clickableuri&quot;},{&quot;fieldName&quot;:&quot;collection&quot;},{&quot;fieldName&quot;:&quot;concepts&quot;},{&quot;fieldName&quot;:&quot;date&quot;},{&quot;fieldName&quot;:&quot;filetype&quot;},{&quot;fieldName&quot;:&quot;indexeddate&quot;},{&quot;fieldName&quot;:&quot;isattachment&quot;},{&quot;fieldName&quot;:&quot;language&quot;},{&quot;fieldName&quot;:&quot;printableuri&quot;},{&quot;fieldName&quot;:&quot;rowid&quot;},{&quot;fieldName&quot;:&quot;size&quot;},{&quot;fieldName&quot;:&quot;source&quot;},{&quot;fieldName&quot;:&quot;title&quot;},{&quot;fieldName&quot;:&quot;topparent&quot;},{&quot;fieldName&quot;:&quot;topparentid&quot;},{&quot;fieldName&quot;:&quot;transactionid&quot;},{&quot;fieldName&quot;:&quot;uri&quot;},{&quot;fieldName&quot;:&quot;urihash&quot;}]" data-applied-prebind="true"></div>
-                        <div aria-live="polite" class="coveo-visible-to-screen-reader-only"></div>
-                     </div>
-                     <!--  <input type="text" placeholder="Search">
-                        <button class="" aria-label="Site Search Toggle">
-                        <img src="/boothnew/boothsitecore/img/searchGray.svg" alt="Search">
-                        </button>-->
-                  </div>
-                  <!--    <div class="search-selection">
-                     <input type="checkbox" name="ChicagoBooth" value=""> <label>All Chicago Booth</label>
-                     <input type="checkbox" name="Lorem Ipsum" value=""><label>Lorem Ipsum</label>
-                     </div>-->
-               </div>
-               <ul class="nav-left menu-item">
-                  <li class=""><a href="https://www.chicagobooth.edu/why-booth" title="Why Booth" style="opacity: 1;">Why Booth</a></li>
-                  <li><a href="https://www.chicagobooth.edu/mba" title="MBA Programs">MBA Programs</a></li>
-                  <li><a href="https://www.chicagobooth.edu/phd" title="PhD">PhD</a></li>
-                  <li><a href="https://www.chicagobooth.edu/executiveeducation" rel="noopener noreferrer" title="Executive Education - This Link Opens in New Window" target="_blank" class="external">Executive Education</a></li>
-                  <li><a href="https://www.chicagobooth.edu/faculty" title="Faculty &amp; Research">Faculty &amp; Insights</a></li>
-                  <li><a href="https://www.chicagobooth.edu/alumni" title="Alumni">Alumni</a></li>
-                  <li><a href="https://www.chicagobooth.edu/companies" title="Companies">Companies</a></li>
-                  <li><a href="https://www.chicagobooth.edu/events" title="Events">Events</a></li>
-                  <li><a href="https://www.chicagobooth.edu/admissions" title="Admissions">Admissions</a></li>
-               </ul>
-            </div>
-         </nav>
-         <div class="search-overlay desktop-search">
-            <div class="search-overlay-container">
-               <label class="visual-hide">Search</label>
-               <div id="_main-global-search-box_container" data-prebind-maximum-age="currentMaximumAge" data-applied-prebind="true" data-maximum-age="0" class="CoveoSearchInterface Coveostate CoveoComponentState CoveoComponentOptions CoveoQueryController coveo-after-initialization CoveoDebug" style="display: block;" data-coveo-for-sitecore-event-registered="true">
-                  <div id="_main-global-search-box" class="CoveoSearchbox" data-enable-omnibox="true" data-enable-query-extension-addon="true" data-enable-query-suggest-addon="true" data-prebind-maximum-age="currentMaximumAge" data-applied-prebind="true" data-maximum-age="0">
-                     <script type="text/javascript">
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var componentId = "_main-global-search-box";
-                            var componentElement = document.getElementById(componentId);
-                        
-                            function showError(error) {
-                                    console.error(error);
-                            }
-                        
-                            function areCoveoResourcesIncluded() {
-                                return typeof (Coveo) !== "undefined";
-                            }
-                        
-                            if (areCoveoResourcesIncluded()) {
-                                var event = document.createEvent("CustomEvent");
-                                event.initEvent("CoveoComponentInitialized", false, true);
-                                
-                                setTimeout(function() {
-                                    componentElement.dispatchEvent(event);
-                                }, 0);
-                            } else {
-                                componentElement.classList.add("invalid");
-                                showError("The Coveo Resources component must be included in this page.");
-                            }
-                        });
-                     </script>
-                     <div class="CoveoForSitecoreExpressions"></div>
-                     <div class="CoveoForSitecoreConfigureSearchHub" data-sc-search-hub="Search"></div>
-                     <div class="CoveoOmnibox magic-box" role="combobox" aria-expanded="false" aria-haspopup="listbox">
-                        <div class="magic-box-input">
-                           <div class="magic-box-underlay">
-                              <span class="magic-box-highlight-container">
-                              <span data-id="start" data-success="true">
-                              <span data-id="Start" data-success="true">
-                              <span data-id="Empty" data-success="true" data-value=""></span>
-                              </span>
-                              </span>
-                              </span>
-                              <span class="magic-box-ghost-text"></span>
-                           </div>
-                           <input spellcheck="false" form="coveo-dummy-form" role="combobox" autocomplete="off" aria-autocomplete="list" title="Insert a query. Press enter to send" aria-label="Search">
-                           <div class="magic-box-clear coveo-accessible-button" role="button" aria-label="Clear" tabindex="-1">
-                              <div class="magic-box-icon">
-                                 <svg enable-background="new 0 0 13 13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg" class="magic-box-clear-svg">
-                                    <g fill="currentColor">
-                                       <path d="m7.881 6.501 4.834-4.834c.38-.38.38-1.001 0-1.381s-1.001-.38-1.381 0l-4.834 4.834-4.834-4.835c-.38-.38-1.001-.38-1.381 0s-.38 1.001 0 1.381l4.834 4.834-4.834 4.834c-.38.38-.38 1.001 0 1.381s1.001.38 1.381 0l4.834-4.834 4.834 4.834c.38.38 1.001.38 1.381 0s .38-1.001 0-1.381z"></path>
-                                    </g>
-                                 </svg>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="magic-box-suggestions"></div>
-                     </div>
-                     <a class="CoveoSearchButton coveo-accessible-button" role="button" aria-label="Search" tabindex="0">
-                        <span class="coveo-search-button">
-                           <svg enable-background="new 0 0 20 20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="coveo-search-button-svg">
-                              <g fill="currentColor">
-                                 <path class="coveo-magnifier-circle-svg" d="m8.368 16.736c-4.614 0-8.368-3.754-8.368-8.368s3.754-8.368 8.368-8.368 8.368 3.754 8.368 8.368-3.754 8.368-8.368 8.368m0-14.161c-3.195 0-5.793 2.599-5.793 5.793s2.599 5.793 5.793 5.793 5.793-2.599 5.793-5.793-2.599-5.793-5.793-5.793"></path>
-                                 <path d="m18.713 20c-.329 0-.659-.126-.91-.377l-4.552-4.551c-.503-.503-.503-1.318 0-1.82.503-.503 1.318-.503 1.82 0l4.552 4.551c.503.503.503 1.318 0 1.82-.252.251-.581.377-.91.377"></path>
-                              </g>
-                           </svg>
-                        </span>
-                        <span class="coveo-search-button-loading">
-                           <svg enable-background="new 0 0 18 18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="coveo-search-button-loading-svg">
-                              <g fill="currentColor">
-                                 <path d="m16.76 8.051c-.448 0-.855-.303-.969-.757-.78-3.117-3.573-5.294-6.791-5.294s-6.01 2.177-6.79 5.294c-.134.537-.679.861-1.213.727-.536-.134-.861-.677-.728-1.212 1.004-4.009 4.594-6.809 8.731-6.809 4.138 0 7.728 2.8 8.73 6.809.135.536-.191 1.079-.727 1.213-.081.02-.162.029-.243.029z"></path>
-                                 <path d="m9 18c-4.238 0-7.943-3.007-8.809-7.149-.113-.541.234-1.071.774-1.184.541-.112 1.071.232 1.184.773.674 3.222 3.555 5.56 6.851 5.56s6.178-2.338 6.852-5.56c.113-.539.634-.892 1.184-.773.54.112.887.643.773 1.184-.866 4.142-4.57 7.149-8.809 7.149z"></path>
-                              </g>
-                           </svg>
-                        </span>
-                     </a>
-                  </div>
-                  <div class="CoveoForSitecoreContext" data-sc-should-have-analytics-component="true" data-sc-analytics-enabled="true" data-sc-current-language="en" data-prebind-sc-language-field-name="fieldTranslator" data-sc-language-field-name="z95xlanguage" data-sc-labels="{&quot;If the problem persists contact the administrator.&quot; : &quot;If the problem persists contact the administrator.&quot; , &quot;Search is currently unavailable&quot; : &quot;Oops! Something went wrong on the server.&quot; , &quot;Created by&quot; : &quot;Created by&quot; , &quot;Creation time.&quot; : &quot;Creation time.&quot; , &quot;Language&quot; : &quot;Language&quot; , &quot;Last time modified.&quot; : &quot;Last time modified.&quot; , &quot;Template&quot; : &quot;Template&quot; , &quot;Uniform resource identifier&quot; : &quot;URI&quot; , &quot;Updated by&quot; : &quot;Updated by&quot; , &quot;Created&quot; : &quot;Created&quot;}" data-sc-maximum-age="0" data-sc-page-name="Home" data-sc-page-name-full-path="/sitecore/content/Chicago Booth/Home" data-sc-index-source-name="Coveo_web_index - Test" data-sc-is-in-experience-editor="false" data-sc-is-user-anonymous="true" data-sc-item-uri="sitecore://web/{28C1C116-E730-4A86-8A56-EAB02650A5F6}?lang=en&amp;ver=23" data-sc-item-id="28c1c116-e730-4a86-8a56-eab02650a5f6" data-prebind-sc-latest-version-field-name="fieldTranslator" data-sc-latest-version-field-name="z95xlatestversion" data-sc-rest-endpoint-uri="/coveo/rest" data-sc-site-name="chicagobooth" data-sc-field-prefix="f" data-sc-field-suffix="54228" data-sc-prefer-source-specific-fields="false" data-sc-external-fields="[{&quot;fieldName&quot;:&quot;permanentid&quot;,&quot;shouldEscape&quot;:false}]" data-sc-source-specific-fields="[{&quot;fieldName&quot;:&quot;attachmentparentid&quot;},{&quot;fieldName&quot;:&quot;clickableuri&quot;},{&quot;fieldName&quot;:&quot;collection&quot;},{&quot;fieldName&quot;:&quot;concepts&quot;},{&quot;fieldName&quot;:&quot;date&quot;},{&quot;fieldName&quot;:&quot;filetype&quot;},{&quot;fieldName&quot;:&quot;indexeddate&quot;},{&quot;fieldName&quot;:&quot;isattachment&quot;},{&quot;fieldName&quot;:&quot;language&quot;},{&quot;fieldName&quot;:&quot;printableuri&quot;},{&quot;fieldName&quot;:&quot;rowid&quot;},{&quot;fieldName&quot;:&quot;size&quot;},{&quot;fieldName&quot;:&quot;source&quot;},{&quot;fieldName&quot;:&quot;title&quot;},{&quot;fieldName&quot;:&quot;topparent&quot;},{&quot;fieldName&quot;:&quot;topparentid&quot;},{&quot;fieldName&quot;:&quot;transactionid&quot;},{&quot;fieldName&quot;:&quot;uri&quot;},{&quot;fieldName&quot;:&quot;urihash&quot;}]" data-applied-prebind="true"></div>
-                  <div aria-live="polite" class="coveo-visible-to-screen-reader-only"></div>
-               </div>
-            </div>
-         </div>
-         <header id="header">
-            <div class="header-content">
-               <div class="wrap-container">
-                  <div class="container">
-                     <div class="logo-container">
-                        <a class="logo" href="https://www.chicagobooth.edu" >The University of Chicago Booth School of Business
-                        <span id="pipe"></span>
-                        </a>
-                        <a href="/boothnew/boothsitecore/ComponentSamples.aspx" class="sec-logo-img logo1"> 
-                        <span id="logobgcolor"></span>
-                        <span style="z-index:2;">
-                        <!-- <img class="not-white" src="img/London%20Conference%20Centre%20Gray.svg" alt="MBA Life">
-                        <img class="white" src="img/London%20Conference%20Centre.svg" alt="MBA Life"> -->
-                        </span>
-                        </a> 
-                     </div>
-                     <nav class="desktop check-active-state">
-                        <!-- THIS WILL BE THE MAIN CORE NAV -->
-                        <ul class="nav-left">
-                           <li class=""><a href="https://www.chicagobooth.edu/why-booth" title="Why Booth" style="opacity: 1;">Why Booth</a></li>
-                           <li><a href="https://www.chicagobooth.edu/mba" title="MBA Programs">MBA Programs</a></li>
-                           <li><a href="https://www.chicagobooth.edu/phd" title="PhD">PhD</a></li>
-                           <li><a href="https://www.chicagobooth.edu/executiveeducation" rel="noopener noreferrer" title="Executive Education - This Link Opens in New Window" target="_blank" class="external">Executive Education</a></li>
-                           <li><a href="https://www.chicagobooth.edu/faculty" title="Faculty &amp; Research">Faculty &amp; Insights</a></li>
-                        </ul>
-                        <!-- END CORE NAV -->
-                        <!-- THIS WILL BE SECONDARY NAV ITEMS -->
-                        <ul class="nav-right">
-                           <li><a href="https://www.chicagobooth.edu/alumni" title="Alumni">Alumni</a></li>
-                           <li><a href="https://www.chicagobooth.edu/companies" title="Companies">Companies</a></li>
-                           <li><a href="https://www.chicagobooth.edu/events" title="Events">Events</a></li>
-                           <li><a href="https://www.chicagobooth.edu/admissions" title="Admissions">Admissions</a></li>
-                           <li class="search"></li>
-                           <li tabindex="0" id="booth-nav" class="hamburger">
-                              <div id="header-hamburger-innercontainer">
-                                 <span></span>
-                                 <span></span>
-                                 <span></span>
-                              </div>
-                           </li>
-                        </ul>
-                        <!-- END SECONDARY NAV -->
-                     </nav>
-                     <span class="target"></span>
-                     <span class="targetHover"></span>
-                  </div>
-               </div>
-               <div class="breadcrumb desktop">
-                  <div class="sub-nav check-active-state">
-                     <div class="horizontal-scroll">
-                        <a href="#" title="Chicago Booth Home">Home</a>
-                        <div class="dropdown">
-                           <a class="dropdown-parent " href="#">Sample Page<span class="toggle-arrow"></span></a>
-                           <ul  class="dropdown-menu">
-                               <li class=""><a href="https://www.chicagobooth.edu/why-booth" title="Why Booth" style="opacity: 1;">Why Booth</a></li>
-                           <li><a href="https://www.chicagobooth.edu/mba" title="MBA Programs">MBA Programs</a></li>
-                           <li><a href="https://www.chicagobooth.edu/phd" title="PhD">PhD</a></li>
-                           <li><a href="https://www.chicagobooth.edu/executiveeducation" rel="noopener noreferrer" title="Executive Education - This Link Opens in New Window" target="_blank" class="external">Executive Education</a></li>
-                           <li><a href="https://www.chicagobooth.edu/faculty" title="Faculty &amp; Research">Faculty &amp; Insights</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="breadcrumb mobile">
-                  <div class="sub-nav check-active-state">
-                     <div class="horizontal-scroll scroller">
-                        <a href="#" title="Chicago Booth Home" class="external">Home</a>
-                        <a class="dropdown-parent " href="#">Sample Page</a>
-                        <div class="dropdown" >
-                           <span>In this Section</span>
-                           <ul  class="dropdown-menu">
-                               <li class=""><a href="https://www.chicagobooth.edu/why-booth" title="Why Booth" style="opacity: 1;">Why Booth</a></li>
-                           <li><a href="https://www.chicagobooth.edu/mba" title="MBA Programs">MBA Programs</a></li>
-                           <li><a href="https://www.chicagobooth.edu/phd" title="PhD">PhD</a></li>
-                           <li><a href="https://www.chicagobooth.edu/executiveeducation" rel="noopener noreferrer" title="Executive Education - This Link Opens in New Window" target="_blank" class="external">Executive Education</a></li>
-                           <li><a href="https://www.chicagobooth.edu/faculty" title="Faculty &amp; Research">Faculty &amp; Insights</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </header>
-         <div tabindex="0" id="hamburger" class="disappear">
-            <div id="hamburger-innercontainer">
-               <span></span>
-               <span></span>
-               <span></span>
-            </div>
-         </div>
-         <div id="back-to-top">
-            <a class="back-to-top" title="Back to the Top">
-            <span></span>
-            </a>
-         </div>
-         <span class="sr-only" id="skipnav">Main Content</span>
-         <main class="container">
-            <section class="component ">
-               <div class="section-container bodyCopy-container">
-                  <span class="visual-element"></span>
-                  <div class="body-copy">
-                     <div class="copy-container">
-                        <h1>Center for Applied Artificial Intelligence</h1>
-                     </div>
-                  </div>
-               </div>
-            </section>
-            <section class="component ">
-               <div class="section-container bodyCopy-container">
-                  <span class="visual-element"></span>
-                  <div class="body-copy">
-                     <p>
-               <a href="{{ url_for('.index', _anchor='myface') }}">JUMP DOWN</a>
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat. Vulputate eu scelerisque felis imperdiet proin. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Orci ac auctor augue mauris augue neque. Diam maecenas sed enim ut sem viverra aliquet eget. Donec ultrices tincidunt arcu non. Urna nec tincidunt praesent semper feugiat nibh sed. Phasellus vestibulum lorem sed risus ultricies. Amet nulla facilisi morbi tempus iaculis urna id volutpat.
-            </p>
-            <p>
-               Pulvinar etiam non quam lacus suspendisse. Semper quis lectus nulla at volutpat diam ut. Quam quisque id diam vel quam elementum pulvinar. Semper feugiat nibh sed pulvinar. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor. Metus dictum at tempor commodo ullamcorper a lacus vestibulum sed. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Magna fermentum iaculis eu non diam phasellus vestibulum. Bibendum neque egestas congue quisque.
-             </p>
-             <br />
-                     <div class="copy-container">
-                         <h2>Full width container for data visualizations</h2>
-                     </div>
-                  </div>
-               </div>
-            </section> 
+      <!-- Single Column container for data visualizations ---->
+      <section class="datavis">
+         <!-- Custom style sheet for the faces interactive elements -->
+         <link rel="stylesheet" href="{{ url_for('static',filename='css/custom/faces-style.css') }}">
+         <!-- Import the d3 library -->
+         <script src="https://d3js.org/d3.v6.min.js"></script>
+         <!-- ### Begin Face Upload Vis -->
+         {% if set_tab %}
+            <script>
+               document.addEventListener("DOMContentLoaded", function() {
+                  document.location.hash = '#myface';
+               });
+            </script>
+         {% endif %}
 
-            <!---  Full width container for data visualizations --->
-            <section section class="component" data-modulename="HTMLContainer">
-               <div class="section-container">
-                <div class="html-container">
-            <!-- Custom style sheet for the faces interactive elements -->
-<link rel="stylesheet" href="{{ url_for('static',filename='css/custom/faces-style.css') }}">
-            <!-- Import the d3 library -->
-            <script src="https://d3js.org/d3.v6.min.js"></script>
-            <!-- ### Begin Face Upload Vis -->
-            {% if set_tab %}
-               <script>
-                  document.addEventListener("DOMContentLoaded", function() {
-                     document.location.hash = '#myface';
-                  });
-               </script>
-            {% endif %}
-
-               <section id="myface">
-               <div id="uploadFace" class="svg-container">
-                  <span class="visTitle">Upload Vis</span>
-                  <p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
-                  <form method="POST" enctype="multipart/form-data" id="faceUploadForm" name='faceUploadForm'>
-                     <label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
-                     
-                     <input type="file" id="myfile" name="fileToUpload">
-                     <span id="showFileSelected">{{ imageName }}</span>
-                     <p id="yourPrediction">{{ yourPrediction }}</p>
-               
-                     {% if error %}
-                        <p id="error">{{ error }}</p>
-                     {% endif %}
-                  <!-- <br/>
-                  <br/>
-                  <br/> -->
-                  </form>
-                  <div id='imageContainer'>
-                     {% if yourImage %}
-                     <img src="{{ yourImage }}" />
-                     {% endif %}
-                  </div>
+         <section id="myface">
+            <div id="uploadFace" class="svg-container">
+               <span class="visTitle">Upload Vis</span>
+               <p>Upload an image of your face for the algorithm to predict how likely you are to win an election, based solely on information about your face.</p>
+               <form method="POST" enctype="multipart/form-data" id="faceUploadForm" name='faceUploadForm'>
+                  <label for="myfile" class="custom-file-upload">Select an image (JPEG, PNG):</label>
                   
-               </div>
-            </section>
-            <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script>
-            <!-- ### End Face Upload Vis --->
-
-           
-               </div>
-               </div>
-            </section>
-
-         <section section class="component" data-modulename="HTMLContainer">
-            <div class="section-container bodyCopy-container">
-            <div class="body-copy">
-            </div>
-            </div>
+                  <input type="file" id="myfile" name="fileToUpload">
+                  <span id="showFileSelected">{{ imageName }}</span>
+                  <p><span class="visTitle" id="yourPrediction">{{ yourPrediction }}</span></p>
             
-            </section>
-            <!---  End Full width container for data visualizations --->
-             
-             <section class="component ">
-               <div class="section-container bodyCopy-container">
-                  <span class="visual-element"></span>
-                  <div class="body-copy">
-                     <p>
-                        Pulvinar etiam non quam lacus suspendisse. Semper quis lectus nulla at volutpat diam ut. Quam quisque id diam vel quam elementum pulvinar. Semper feugiat nibh sed pulvinar. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor. Metus dictum at tempor commodo ullamcorper a lacus vestibulum sed. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Magna fermentum iaculis eu non diam phasellus vestibulum. Bibendum neque egestas congue quisque.
-                      </p>
-                      <br />
-                     <div class="copy-container">
-                       <h2>Single Column container for data visualizations</h2>
-                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat. Vulputate eu scelerisque felis imperdiet proin. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Orci ac auctor augue mauris augue neque. Diam maecenas sed enim ut sem viverra aliquet eget. Donec ultrices tincidunt arcu non. Urna nec tincidunt praesent semper feugiat nibh sed. Phasellus vestibulum lorem sed risus ultricies. Amet nulla facilisi morbi tempus iaculis urna id volutpat.
-                     </p>
-
-                     </div>
-                  </div>
-               </div>
-            </section> 
-             
-             <!-- Single Column container for data visualizations ---->
-            <section class="component" data-modulename="HTMLContainer">
-               <div class="section-container">
-                  <div class="single-col html-container">
-            <!-- Your Code --->
-            <div id="compareFaces" class="svg-container">
-               <span class="visTitle">Compare Vis</span>
-            <p>These two candidates ran for election. Based solely on their faces, click on the candidate who you think won.
-            </p>
-            <svg id="compareSVG">
-            </svg>
-            <script src="{{ url_for('static', filename='js/compare-faces.js') }}"></script>
+                  {% if error %}
+                     <p id="error">{{ error }}</p>
+                  {% endif %}
+               </form>
+               <div id='imageContainer'>
+                  <p id="imageLoading"></p>
+                  {% if yourImage %}
+                  <img src="{{ yourImage }}" />
+                  {% endif %}
+               </div>               
             </div>
-            </div>
-            <div class="single-col html-container">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat. Vulputate eu scelerisque felis imperdiet proin. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Orci ac auctor augue mauris augue neque. Diam maecenas sed enim ut sem viverra aliquet eget. Donec ultrices tincidunt arcu non. Urna nec tincidunt praesent semper feugiat nibh sed. Phasellus vestibulum lorem sed risus ultricies. Amet nulla facilisi morbi tempus iaculis urna id volutpat.
+         </section>
+         <script src="{{ url_for('static', filename='js/upload-face.js') }}"></script>
+         <!-- ### End Face Upload Vis --->
+         <div class="fillertext">
+            <p>At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Dignissim convallis aenean et tortor. Metus dictum at tempor commodo ullamcorper a lacus vestibulum sed. Elementum facilisis leo vel fringilla est ullamcorper eget nulla. Magna fermentum iaculis eu non diam phasellus vestibulum. Bibendum neque egestas congue quisque.
             </p>
          </div>
-      </div>
-   </section>
-   <section id="slidersSection" class="component" data-modulename="HTMLContainer">
-               <div class="section-container">
-                  <div class="single-col html-container">
-
-
-            <!-- Your Code --->
-            <div id="sliderFaces" class="svg-container">
-               <span class="visTitle">Slider Vis</span>
-               <div id="sliderImageDiv">
-                  <img src="{{ url_for('static',filename='slider-faces/renamed_images/seed_200_var_bddd.png') }}" id="topImage" class="sliderImage"></img>
-                  <img src="{{ url_for('static',filename='slider-faces/renamed_images/seed_200_var_aadd.png') }}" id="bottomImage" class="sliderImage"></img>
-               </div>
-               <span><div id="prediction">Value: 0.0000</div><svg id="sliderArrowSVG"></svg></span>
+      </section>
+      
+      <section class="datavis">
+         <div id="compareFaces" >
+            <span class="visTitle">Beat the Algorithm</span>
+            <p>These two candidates ran for election. Based solely on their faces, the algorithm predicts the correct winner 100% of the time. See if you can beat the computer!</p>
+            <svg id="compareSVG"></svg>
+            <script src="{{ url_for('static', filename='js/compare-faces.js') }}"></script>
+         </div>
+         <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt dui ut ornare lectus sit amet est placerat. Vulputate eu scelerisque felis imperdiet proin. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Orci ac auctor augue mauris augue neque. Diam maecenas sed enim ut sem viverra aliquet eget. Donec ultrices tincidunt arcu non. Urna nec tincidunt praesent semper feugiat nibh sed. Phasellus vestibulum lorem sed risus ultricies. Amet nulla facilisi morbi tempus iaculis urna id volutpat.</p>
+         </div>
+      </section>
+      <section id="slidersSection">
+         <div id="sliderFaces">
+            <span class="visTitle">Slider Vis</span>
+            <p>The algorithm randomly adjusts pixels in the seed image as it generates images, and these changes affect the predicted score for the image. Move the sliders to explore the "face space" and observe how the facial changes affect the scores.</p>
+            <div id="sliderImageDiv">
+               <img src="{{ url_for('static',filename='slider-faces/renamed_images_200/seed_200_var_aadd.png') }}" id="topImage" class="sliderImage"></img>
+            </div>
+            <span>
+               <div id="prediction">Value: 0.0000</div>
+               <svg id="sliderArrowSVG"></svg>
+            </span>
             <br />
             <div id="slidersDiv">
+               <label id="button124" class="custom-file-upload">Button 124</label> <label id="button200" class="custom-file-upload">Button 200</label>
+               <br />
                <label for="slider_1">A</label><input type="range" min="-1" max="1" step="0.25" value="-1" id="slider_1" class="sliders" >
                <br/>
                <label for="slider_2">B</label><input type="range" min="-1" max="1" step="0.25" value="-1" id="slider_2" class="sliders">
@@ -482,240 +89,8 @@
                <br/>
                <label for="slider_4">D</label><input type="range" min="-1" max="1" step="0.25" id="slider_4" class="sliders">
             </div>
-            </div>
-            <script src="{{ url_for('static', filename='js/slider-faces.js') }}"></script>
-
-            
-                  </div>
-               </div>
-            </section>
-            <!--- End Single Column container for data visualizations --->
-             
-
-
-
-
-
-
-         </main>
-         <footer>
-            <section class="component">
-               <div class="swiss-row-four section-container">
-                  <div class="logo-container">
-                     <a class="logo" href="https://www.chicagobooth.edu/" title="University of Chicago Booth School of Business"></a>
-                  </div>
-                  <div class="footerlinks-container">
-                     <div class="row">
-                        <h2 class="h5">Explore</h2>
-                        <div class="footer-links">
-                           <ul>
-                              <li><a href="#">Why Booth</a></li>
-                              <li><a href="#">MBA</a></li>
-                              <li><a href="#">PhD</a></li>
-                              <li><a class="external" href="#">Executive Education</a></li>
-                              <li><a href="#">Faculty and Insights</a></li>
-                           </ul>
-                           <ul>
-                              <li><a href="#">Alumni</a></li>
-                              <li><a href="#">Companies</a></li>
-                              <li><a href="#">Events</a></li>
-                              <li><a href="#">Admissions</a></li>
-                           </ul>
-                           <ul>
-                              <li><a href="#">About</a></li>
-                              <li><a href="#">Careers at Booth</a></li>
-                              <li><a href="#">News</a></li>
-                              <li><a href="#">Chicago Booth Magazine</a></li>
-                              <li><a href="#">Chicago Booth Review</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="cta-section">
-                           <a class="btn btn-white" href="#">REQUEST INFORMATION</a>
-                           <a class="btn btn-white" href="#">APPLY</a>
-                           <a class="btn btn-white external" href="#">GIVE</a>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <h2 class="h5">Other Offerings</h2>
-                        <div class="cta-with-header cta-section">
-                           <a href="https://www.chicagobooth.edu/offerings" class="btn btn-white" title="All Offerings">All Offerings</a>
-                           <a href="https://www.chicagobooth.edu/offerings/undergraduate" class="btn btn-white" title="Opportunities for Undergraduates">Undergraduates</a>
-                           <a href="https://www.chicagobooth.edu/offerings/taking-booth-classes" class="btn btn-white" title="Taking Classes at Booth">Taking Classes</a>                    
-                        </div>
-                     </div>
-                     <div class="row">
-                        <h2><a class="h5" href="#">Global Locations</a></h2>
-                        <div class="footer-links">
-                           <ul>
-                              <li><a href="#">Harper Center</a></li>
-                              <li><a href="#">Gleacher Center</a></li>
-                           </ul>
-                           <ul>
-                              <li><a href="#">Executive MBA Chicago</a></li>
-                              <li><a href="#">Executive MBA London</a></li>
-                              <li><a href="#">Executive MBA Hong Kong</a></li>
-                           </ul>
-                           <ul>
-                              <li><a class="external" href="#">Executive Education Global Locations</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <h2 class="h5">Follow</h2>
-                        <ul class="social">
-                           <li>
-                              <a class="icon" target="_blank" href="https://www.facebook.com/chicagoboothbusiness">
-                              <img src="{{ url_for('static', filename='img/facebook.svg') }}" alt="facebook icon">
-                              </a>
-                           </li>
-                           <li>
-                              <a class="icon" target="_blank" href="https://www.instagram.com/chicagobooth/">
-                              <img src="{{ url_for('static',filename='img/instagram.svg') }}" alt="instagram icon">
-                              </a>
-                           </li>
-                           <li>
-                              <a class="icon" target="_blank" href="https://twitter.com/ChicagoBooth">
-                              <img src="{{ url_for('static',filename='img/twitter.svg') }}" alt="twitter icon">
-                              </a>
-                           </li>
-                           <li>
-                              <a class="icon" target="_blank" href="https://www.youtube.com/user/ChicagoBoothMBA">
-                              <img src="{{ url_for('static',filename='img/youTube.svg') }}" alt="youTube icon">
-                              </a>
-                           </li>
-                           <li>
-                              <a class="icon" target="_blank" href="https://www.linkedin.com/school/universityofchicagoboothschoolofbusiness/">
-                              <img src="{{ url_for('static',filename='img/linkedIn.svg') }}" alt="linkedIn icon">
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
-                     <div class="row address">
-                        <p>
-                           <span class="bold2 h4"> The University of Chicago Booth School of Business</span><br/>
-                           5807 S. Woodlawn Ave.<br/>
-                           Chicago, Illinois 60637 USA
-                        </p>
-                        <p>Phone: 773.xxx.xxxx</p>
-                        <br/>
-                        <p>
-                           <a class="btn btn-white" href="mailto:rustandycenter@chicagobooth.edu">Contact</a>
-                        </p>
-                     </div>
-                     <div class="row">
-                        <ul class="details">
-                           <li><a href="https://www.uchicago.edu/" target="_blank" title="The University of Chicago">The University of Chicago</a></li>
-                           <li><a href="https://intranet.chicagobooth.edu/" target="_blank" title="Intranet">Intranet</a></li>
-                           <li><a href="/privacy-notice" target="_blank" title="Privacy Notice">Privacy Notice</a></li>
-                        </ul>
-                        <br/>
-                        <p>© Copyright 2004-2019 The University of Chicago Booth School of Business</p>
-                     </div>
-                  </div>
-               </div>
-            </section>
-         </footer>
-      <!-- </form> -->
-<!--       <script src="./js/bundled.js"></script> -->
-      <script class="coveo-script" type="text/javascript" src="https://static.cloud.coveo.com/searchui/v2.6063/js/CoveoJsSearch.Lazy.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.js" defer  ></script> 
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <!-- <script src="/boothnew/boothsitecore/js/headroom.js" ></script> -->
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
-      <script>
-         // Source: https://github.com/jserz/js_piece/blob/master/DOM/ParentNode/append()/append().md
-         (function (arr) {
-         arr.forEach(function (item) {
-             if (item.hasOwnProperty('append')) {
-             return;
-             }
-             Object.defineProperty(item, 'append', {
-             configurable: true,
-             enumerable: true,
-             writable: true,
-             value: function append() {
-                 var argArr = Array.prototype.slice.call(arguments),
-                 docFrag = document.createDocumentFragment();
-                 
-                 argArr.forEach(function (argItem) {
-                 var isNode = argItem instanceof Node;
-                 docFrag.appendChild(isNode ? argItem : document.createTextNode(String(argItem)));
-                 });
-                 
-                 this.appendChild(docFrag);
-             }
-             });
-         });
-         })([Element.prototype, Document.prototype, DocumentFragment.prototype]);
-      </script>
-      <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-    <!--   <script src="/boothnew/boothsitecore/js/lazysizes.min.js"></script> -->
-      <script>
-         $(window).on("load",function() {
-             
-             if($(".carousel-sync").length) {
-                 $('.carousel-sync').carousel('cycle');
-                 $('.carousel-sync').on('click','.carousel-control[data-slide]',function(ev) {
-                     ev.preventDefault();
-                     $('.carousel-sync').carousel($(this).data('slide'))
-                 });
-                 $('.carousel-sync').on('mouseover', function(ev) { 
-                     ev.preventDefault();
-                     $('.carousel-sync').carousel('pause')
-                 });
-                 $('.carousel-sync').on('mouseleave', function(ev) { 
-                     ev.preventDefault();
-                     $('.carousel-sync').carousel('cycle')
-                 })
-             }
-         });
-         
-         $(document).ready(function() {
-             const observer = lozad(); // lazy loads elements with default selector as ".lozad"
-             observer.observe();
-             checkPCookie();
-             function setCookie(cname,cvalue,exdays) {
-                 var d=new Date();d.setTime(d.getTime()+(exdays*24*60*60*1000));
-                 var expires="expires="+d.toGMTString();
-                 document.cookie=cname+"="+cvalue+";"+expires+";path=/"
-             }
-             function getCookie(cname) { 
-                 var name=cname+"=";
-                 var decodedCookie=decodeURIComponent(document.cookie);
-                 var ca=decodedCookie.split(';');
-                 for(var i=0;i<ca.length;i++) { 
-                     var c=ca[i];
-                     while(c.charAt(0)==' ') { 
-                         c=c.substring(1)
-                     }
-                     if(c.indexOf(name)==0) { 
-                         return c.substring(name.length,c.length) 
-                     }
-                 }
-                 return""
-             }
-             function checkPCookie() { 
-                 var user=getCookie("BoothPrivacyCookie");
-                 var alert=getCookie('AlertBoxCookie');
-                 if(user!="") { 
-                     var element=document.getElementById("PrivacyDIV");
-                     element.classList.add("gdpr-style");
-                 }
-                 else { 
-                     user="BoothSetCookie";
-                     if(user!=""&&user!=null) { 
-                         setCookie("BoothPrivacyCookie",user,90);
-                         document.getElementById("PrivacyDIV").style.opacity="1";
-                         document.getElementById("PrivacyDIV").style.display="flex";
-                     }
-                 }
-                 if(alert != "") { 
-                     $("#privacy-policy .alert-box:not(.form)").addClass("gdpr-style");
-                 }
-             }
-         });
-      </script>
+            <script src="{{ url_for('static', filename='js/slider-faces.js') }}"></script> 
+         </div>
+      </section>
    </body>
 </html>
