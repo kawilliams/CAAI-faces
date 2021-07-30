@@ -10,6 +10,12 @@ CAII
 text {
 	color: #39393a;
 	font-size: 16px;
+	font-family: sans-serif;
+}
+
+p {
+	font-family: sans-serif;
+	font-size: 16px;
 }
 
 label {
@@ -23,12 +29,13 @@ label {
 	background-color: #ececec;
 	text-align: center;
 	word-wrap: normal;
+	max-width: 70%;
 }
 
 #error {
 	color: red;
 	font-weight: bold;
-	font-family: 'TradeGothic Cn 18';
+	font-family: 'sans-serif';
 }
 
 span {
@@ -38,8 +45,7 @@ span {
 .visTitle {
 	text-align: center;
 	color: #1B365D;
-	font-family: 'TradeGothic BoldCn 20';
-	font-weight: inherit;
+	font-family: 'sans-serif';
 	font-size: 2em;
 	letter-spacing: 0rem;
 }
@@ -47,8 +53,7 @@ span {
 .visText {
 	text-align: center;
 	color: #1B365D;
-	font-family: 'Trade Gothic LT W01 Light';
-	font-weight: inherit;
+	font-family: 'sans-serif';
 	font-size: calc(16px + .3vw);
 	line-height: 1.75;
 
@@ -86,18 +91,18 @@ input[type="file"] {
 	background-color: #ececec;
 	text-align: center;
 	word-wrap: normal;
+	max-width: 70%;
 }
 
 #currentScore {
 	color: #1B365D;
-	font-family: 'TradeGothic BoldCn 20';
+	font-family: 'sans-serif';
 }
 
 #imageText {
 	text-align: center;
 	color: #1B365D;
-	font-family: 'TradeGothic BoldCn 20';
-	font-weight: inherit;
+	font-family: 'sans-serif';
 	letter-spacing: 0rem;
 	font-size: 1.5em;
 }
@@ -110,6 +115,7 @@ input[type="file"] {
 	background-color: #ececec;
 	text-align: center;
 	word-wrap: normal;
+	max-width: 70%;
 }
 
 
@@ -129,9 +135,6 @@ input[type="file"] {
 	max-height:  220px;
 }
 
-.personButton div {
-	fill:  magenta;
-}
 
 /*Div containing the sliders*/
 #slidersDiv {
@@ -170,8 +173,7 @@ input[type="file"] {
 	display: inline;
 	text-align: center;
 	color: #1B365D;
-	font-family: 'TradeGothic BoldCn 20';
-	font-weight: inherit;
+	font-family: 'sans-serif';
 	letter-spacing: 0rem;
 	font-size: 1.5em;
 }
