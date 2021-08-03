@@ -4,7 +4,6 @@ input id='myfile', name='fileToUpload'
 input id='uploadImage', name='submit', value='Upload Image'
 */
 
-
 const fileElem = document.getElementById("myfile");
 
 /// Listen for uploads
