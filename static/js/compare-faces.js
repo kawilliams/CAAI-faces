@@ -71,7 +71,7 @@ function checkImage() {
 	}
 	compScore = compScoreAll[imageIndex];
 
-	d3.select("#currentScore")
+	d3.select("#yourScore")
 		.text("Your score: " + score + "/" + imageIndex);
 	d3.select("#computerScore")
 		.text("Computer score: " + compScore + "/" + imageIndex);
@@ -242,7 +242,7 @@ var rightRect = imagesG.append('rect')
 	.on('click', checkImage);
 
 var yourScore = imagesG.append('text')
-	.attr('id', "currentScore")
+	.attr('id', "yourScore")
 	.attr('class', 'visText')
 	.attr('x', imageDimensions.xleft + 40)
 	.attr('y', imageDimensions.yleft + imageDimensions.height + 20)
