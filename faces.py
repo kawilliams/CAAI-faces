@@ -21,7 +21,9 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-#app.config['MAX_CONTENT_LENGTH'] = 5*1024 #*1024
+
+#Set the image size cap to 5 MB
+app.config['MAX_CONTENT_LENGTH'] = 5*1024*1024
 
 
 
@@ -44,12 +46,13 @@ def upload_file():
 		error = "No file selected"
 		return render_template('booth-faces.html', error=error)
 	
-
+	# TODO: MAX_CONTENT_LENGTH doesn't provide a useful error to 
+	# the user, so handle the error here.
 	# if katy:
 	# 	error = "File is too large"
 	# 	return render_template('booth-faces.html', error=error)
 
-	#DELETE THIS "IF": This condition exists as a placeholder
+	#TODO: DELETE THIS "IF" - This condition exists as a placeholder
 	#for when the CNN cannot adequately process an image.
 	#Replace with a "if the image is not a face" condition.
 	if len(upload_file.filename) > 10:
@@ -61,8 +64,16 @@ def upload_file():
 		safe_filename = secure_filename(upload_file.filename)
 		upload_file.save(os.path.join(app.config['UPLOAD_FOLDER'], safe_filename))
 
+		"""
+		Creates a new Image Predictor object, based on the filename.
+		Then constructs the CNN once getCNNPrediction is called.
+		Returns the prediction for that file.
+		"""
 		yourImagePredictor = ImagePredictor(safe_filename)
 		yourPrediction = yourImagePredictor.getCNNPrediction()
+
+
+		# Retrieves the image and displays it in the correct section
 		yourImage = UPLOAD_FOLDER+"/"+safe_filename
 
 	return render_template('booth-faces.html', set_tab=1, error=error, yourPrediction=yourPrediction, yourImage=yourImage, imageName=safe_filename)
