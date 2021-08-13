@@ -29,7 +29,7 @@ Wix doesn't have a slider button (yet). Currently, the page gets around that by 
 As a result, the sliders aren't as smooth as we would like. Depending on the release of the faces research and the implementation of Wix-style sliders, it may work out that we can use Wix sliders for the final release. 
 
 ### Adding Python code 
-Connecting Python code to the Wix pages seems like it might be possible with web modules. Another option is a Jupyter notebook, since Wix can display Python notebooks (I haven't delved into the documentation for this).
+Connecting Python code to the Wix pages seems like it might be possible with [web modules](https://support.wix.com/en/article/velo-web-modules-calling-backend-code-from-the-frontend?_gl=1*1rc33r2*_ga*OTExODYxOTguMTYyODUzNTQ0OQ..*_ga_H314XQHSPY*MTYyODUzNTUzNS4xLjAuMTYyODUzNTUzNS42MA..) and/or [fetch](https://www.wix.com/velo/reference/wix-fetch/fetch) (a second use of fetch is [here](https://www.wix.com/velo/forum/coding-with-velo/solved-connecting-wix-code-to-python-backend)). Another option is a Jupyter notebook, since Wix can display Python notebooks (I haven't delved into the documentation for this). The "nuclear" option would be to scrape the code and rebuild it with Flask, which is known for combining Python back-end with website front-end.
 
 ### Delete uploaded files
 
