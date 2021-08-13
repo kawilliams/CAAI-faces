@@ -1,5 +1,5 @@
 # Faces README
-The original code is in my Github repository. The code has been modified for the Wix.com version. 
+The original code is in my [Github](https://github.com/kawilliams/CAAI-faces) repository. The code has been modified for the Wix.com version ([caaifaces.org](https://caaifaces.org) is the site, [wix.com](https://wix.com) is where you edit). In the Github repo, all 3 visualizations are in the same webpage (`templates/booth-faces.html`) and each visualization has its own Javascript file (`static/js/compare-faces.js`, etc.).
 
  
 ## Github repository instructions
@@ -21,21 +21,19 @@ Run the code (`python3 renameImages.py`) to change the files. NOTE: if the namin
 
 
 
-## Outstanding issues
+## Wix issues
 
 ### Sliders
-Wix doesn't have a slider button (yet). Currently, the page gets around that by embedding an iframe -- Wix calls this ''adding a Custom Element." As a result, there are a lot of restrictions to using the iframe for Wix's own security reasons. Anything in the iframe cannot reference anything else on the webpage -- the contents of the iframe act like a different site. That means references to photos must be external (i.e. instead of ''./slider-faces/image_aaaa.png", the images are linked to GitHub because those links are accessible anywhere and are HTTPS links, rather than HTTP). This also means the style within the iframe (e.g. the font, the colors) must be written by hand; you can't inherit the webpage's existing CSS style sheet.   
+Wix doesn't have a slider button (yet). Currently, the page gets around that by embedding an iframe -- Wix calls this "adding a Custom Element." As a result, there are a lot of restrictions to using the iframe for Wix's own security reasons. Anything in the iframe cannot reference anything else on the webpage -- the contents of the iframe act like a different site. That means references to photos must be external (i.e. instead of `./slider-faces/image_aaaa.png`, the images are linked to GitHub because those links are accessible anywhere and are HTTPS links, rather than HTTP). This also means the style within the iframe (e.g. the font, the colors) must be written by hand; you can't inherit the webpage's existing CSS style sheet. 
 
-###Add instructions for deployment onto server #14
-Closing the issue since we are hosting the files on Wix (with significant modifications). Connecting Python code to the Wix pages seems like it might be possible with web modules. Another option is a Jupyter notebook, since Wix can display Python notebooks (I haven't delved into the documentation for this).
+As a result, the sliders aren't as smooth as we would like. Depending on the release of the faces research and the implementation of Wix-style sliders, it may work out that we can use Wix sliders for the final release. 
 
-###Delete uploaded files #9
-Add code to faces.py to delete existing uploaded images in static/uploaded-faces/.
-Options:
-SIMPLE: delete all contents of directory at start of script
-causes issue if person A uploads file, then person B deletes all files, then person A can't view their file
-COMPLICATED: delete the oldest contents of the directory at the start of script
-need to sort files by date/time and remove ones more than 00:15:00 old (15 min -- or read time of the article)
+### Adding Python code 
+Connecting Python code to the Wix pages seems like it might be possible with web modules. Another option is a Jupyter notebook, since Wix can display Python notebooks (I haven't delved into the documentation for this).
+
+### Delete uploaded files
+
+On Wix, according to this [forum answer](https://www.wix.com/velo/forum/coding-with-velo/how-to-delete-uploaded-media-with-code), there is no way to delete "Visitor Uploads" (i.e. the images in "My Face") using code. A manager of the account has to go in and manually delete the images. 
 
 
 
